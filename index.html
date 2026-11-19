@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>unspoken motherhood co</title>
+<meta name="description" content="the invisible side of motherhood. free printables and little things for the hard days.">
+<meta property="og:title" content="unspoken motherhood co">
+<meta property="og:description" content="the stuff nobody says out loud. free printables and little things for the hard days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800;900&family=Caveat:wght@600;700&display=swap">
+<style>
+:root{--vanilla:#F2EEE9;--card:#FBF8F4;--blush:#E8DCE0;--berry:#D8B6B8;--berryink:#8A5A66;--fern:#8E9A92;--ink:#2F2428;--night:#1C1517;--muted:#5A4A50;color-scheme:light}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;background:var(--vanilla);color:var(--ink)}
+body{font-family:'Inter Tight','Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:440px;margin:0 auto;padding:28px max(16px,env(safe-area-inset-right,0px)) 36px max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:48px}
+.hand{font-family:Caveat,'Bradley Hand',cursive;font-weight:700}
+a{color:var(--berryink)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--berryink);outline-offset:2px}
+header{display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
+.logo{font-size:34px;font-weight:900;letter-spacing:-.04em;line-height:1}
+.logo-sub{font-size:22px;color:var(--berryink);line-height:1}
+.tag{margin-top:10px;font-size:13px;font-weight:500;color:var(--muted)}
+.hero{margin-top:-20px;background:var(--ink);color:var(--card);border-radius:4px;padding:44px 24px 36px;display:flex;flex-direction:column;gap:18px}
+.hero h1{margin:0;font-size:46px;font-weight:900;line-height:.9;letter-spacing:-.045em;text-wrap:balance}
+.hero h1 .hand{display:block;margin-top:4px;font-size:58px;line-height:.9;letter-spacing:0;color:var(--berry)}
+.hero p{margin:0;font-size:16px;line-height:1.45;color:var(--blush)}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font-weight:800;font-size:15px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.pill.light{align-self:flex-start;background:var(--berry);color:var(--ink)}
+.pill.solid{background:var(--berryink);color:var(--card);min-height:52px;font-size:16px}
+.pill.line{align-self:flex-start;min-height:44px;padding:0 18px;border:2px solid var(--ink);color:var(--ink);font-size:14px}
+section{display:flex;flex-direction:column;gap:16px}
+.h2row{display:flex;align-items:baseline;gap:10px;padding:0 8px}
+h2{margin:0;font-size:30px;font-weight:900;letter-spacing:-.04em;line-height:1}
+.h2row .hand{font-size:26px;color:var(--berryink);line-height:1}
+.item{display:flex;gap:16px;align-items:center;background:var(--card);border-radius:4px;padding:14px}
+.cover{flex:0 0 96px;height:128px;padding:12px 10px;display:flex;flex-direction:column;justify-content:center}
+.cover b{font-size:17px;font-weight:900;letter-spacing:-.04em;line-height:.9}
+.cover .hand{font-size:28px;line-height:1}
+.c1{background:var(--berryink);color:var(--card)}.c1 .hand{color:var(--berry)}
+.c2{background:var(--night);color:var(--card)}.c2 .hand{color:var(--berry);font-size:34px}
+.c3{background:var(--blush);color:var(--ink)}.c3 .hand{color:var(--berryink)}
+.c4{background:#F0E3E3;color:var(--ink)}.c4 b{font-size:30px}.c4 .hand{color:var(--berryink);font-size:22px;line-height:.95}
+.txt{display:flex;flex-direction:column;gap:6px;min-width:0}
+.txt h3{margin:0;font-size:18px;font-weight:800;letter-spacing:-.02em}
+.txt p{margin:0;font-size:14px;line-height:1.4;color:var(--muted)}
+.signup{background:var(--berry);border-radius:4px;padding:24px 20px;display:flex;flex-direction:column;gap:12px}
+.signup .big{font-size:22px;font-weight:900;letter-spacing:-.03em;line-height:1.05}
+.signup label{font-size:13px;font-weight:700;margin-bottom:-6px}
+.signup input{height:48px;padding:0 14px;border:0;border-radius:4px;background:var(--card);color:var(--ink);font:inherit;font-size:16px}
+.signup .fine{margin:0;font-size:13px;color:#3E3035}
+.msg{margin:0;font-size:14px;font-weight:700;color:var(--ink)}
+.dl{display:flex;flex-direction:column;gap:10px}
+.dl a{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:48px;padding:0 16px;background:var(--card);border-radius:4px;color:var(--ink);font-weight:800;text-decoration:none}
+.dl a span{font-size:12px;font-weight:700;color:var(--muted)}
+.locks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.locks a{display:block;min-height:0;padding:0;background:none}
+.locks img{display:block;width:100%;height:auto;border-radius:4px}
+.app{background:var(--card);border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
+.app .top{background:var(--fern);padding:28px 24px;display:flex;flex-direction:column;gap:4px}
+.badge{align-self:flex-start;padding:5px 12px;border-radius:999px;background:var(--ink);color:var(--card);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.app .name{margin-top:14px;font-size:34px;font-weight:900;letter-spacing:-.045em;line-height:.92;color:var(--ink)}
+.app .name+.hand{font-size:44px;line-height:.9;color:var(--card)}
+.app .body{padding:20px 20px 24px;display:flex;flex-direction:column;gap:12px}
+.app .body p{margin:0;font-size:15px;line-height:1.45;color:#3E3035}
+.price{display:flex;align-items:baseline;gap:8px}
+.price b{font-size:26px;font-weight:900;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.price span{font-size:13px;color:var(--muted)}
+.who{background:var(--blush);border-radius:4px;padding:32px 24px;display:flex;flex-direction:column;gap:10px}
+.who .hand{font-size:30px;color:var(--berryink);line-height:1}
+.who p{margin:0;font-size:16px;line-height:1.5}
+footer{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+footer .ig{font-size:15px;font-weight:800;text-decoration:none}
+footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+footer .help{margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--muted);max-width:340px}
+@media (prefers-reduced-motion:no-preference){.pill{transition:transform .15s}.pill:active{transform:scale(.97)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">unspoken</div>
+    <div class="logo-sub hand">motherhood co</div>
+    <div class="tag">the invisible side of motherhood.</div>
+  </header>
+
+  <div class="hero">
+    <h1>the stuff nobody says <span class="hand">out loud</span></h1>
+    <p>free printables and little things that make the hard days a tiny bit easier. made by a mom who gets it.</p>
+    <a class="pill light" href="#free">get the free stuff
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </div>
+
+  <section id="free">
+    <div class="h2row"><h2>free for you</h2><span class="hand">no catch</span></div>
+    <div class="item"><div class="cover c1" aria-hidden="true"><b>the mental load</b><span class="hand">list</span></div>
+      <div class="txt"><h3>the mental load list</h3><p>everything you carry in your head, on one page. print it, or hand it to the person who keeps asking what they can do.</p></div></div>
+    <div class="item"><div class="cover c2" aria-hidden="true"><b>for</b><span class="hand">2am</span></div>
+      <div class="txt"><h3>the 2am lock screens</h3><p>6 lock screens for when your brain won't shut off and everybody else is asleep.</p></div></div>
+    <div class="item"><div class="cover c3" aria-hidden="true"><b>who i was</b><span class="hand">before</span></div>
+      <div class="txt"><h3>the before list</h3><p>a little page to write down the things that were yours before kids, so you can pick one back up.</p></div></div>
+
+    <div class="signup" id="get">
+      <form id="signup-form" action="https://app.kit.com/forms/10214036/subscriptions" method="post" style="display:flex;flex-direction:column;gap:12px">
+        <div class="big">want all 3? they're free.</div>
+        <label for="fname">first name</label>
+        <input id="fname" name="fields[first_name]" type="text" autocomplete="given-name" placeholder="your first name">
+        <label for="email">email</label>
+        <input id="email" name="email_address" type="email" required autocomplete="email" placeholder="you@email.com">
+        <button class="pill solid" type="submit">send me the free stuff</button>
+        <p class="msg" role="status" hidden></p>
+        <p class="fine">no spam. just the freebies and a little note now and then. unsubscribe anytime.</p>
+      </form>
+      <div id="done" hidden>
+        <div class="big" style="margin-bottom:6px">they're yours</div>
+        <p class="fine" style="margin:0 0 14px">tap to download. on your phone, open a lock screen and press and hold to save it to your photos.</p>
+        <div class="dl">
+          <a href="free/Mental-Load-List.pdf" download>the mental load list <span>PDF</span></a>
+          <a href="free/Who-I-Was-Before.pdf" download>the before list <span>PDF</span></a>
+          <div class="locks" aria-label="the 2am lock screens">
+            <a href="free/2am-Lock-Screen-1.png"><img src="free/2am-Lock-Screen-1.png" alt="lock screen: the dishes can wait. sleep can't" loading="lazy"></a>
+            <a href="free/2am-Lock-Screen-2.png"><img src="free/2am-Lock-Screen-2.png" alt="lock screen: you don't have to figure it all out tonight" loading="lazy"></a>
+            <a href="free/2am-Lock-Screen-3.png"><img src="free/2am-Lock-Screen-3.png" alt="lock screen: everybody's asleep. you're allowed to rest too" loading="lazy"></a>
+            <a href="free/2am-Lock-Screen-4.png"><img src="free/2am-Lock-Screen-4.png" alt="lock screen: the list will still be there in the morning" loading="lazy"></a>
+            <a href="free/2am-Lock-Screen-5.png"><img src="free/2am-Lock-Screen-5.png" alt="lock screen: you did enough today" loading="lazy"></a>
+            <a href="free/2am-Lock-Screen-6.png"><img src="free/2am-Lock-Screen-6.png" alt="lock screen: put the phone down, friend. seriously" loading="lazy"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="h2row"><h2>for the hard days</h2></div>
+    <article class="app">
+      <div class="top">
+        <span class="badge">coming soon</span>
+        <div class="name">finding me</div>
+        <div class="hand">again</div>
+      </div>
+      <div class="body">
+        <p>a private journal app for postpartum. no blank pages, just little prompts for the hard days and the good ones. made by a mom who's been there.</p>
+        <div class="price"><b>$29</b><span>launch week, then $39</span></div>
+        <a class="pill solid" href="https://itslaurendupuis.com/waitlist/">save my spot</a>
+      </div>
+    </article>
+    <article class="item">
+      <div class="cover c4" aria-hidden="true"><b>30</b><span class="hand">things i needed to hear</span></div>
+      <div class="txt" style="gap:8px">
+        <h3>30 things i needed to hear</h3>
+        <p>printable cards + 6 lock screens. one for every day of the month.</p>
+        <a class="pill line" href="https://buy.stripe.com/dRmcN7eB5fvegK46lX6Na01">get them $3</a>
+      </div>
+    </article>
+  </section>
+
+  <div class="who">
+    <div class="hand">who's behind this?</div>
+    <p>just a mom who's tired of acting like this is easy. no face, no name, just the stuff we're all thinking and nobody says.</p>
+  </div>
+
+  <footer>
+    <a class="ig" href="https://www.instagram.com/unspokenmotherhoodco/">@unspokenmotherhoodco</a>
+    <div class="mark">unspoken</div>
+    <p class="help">if it ever gets really dark, please don't wait. call or text 988, or the National Maternal Mental Health Hotline at 1-833-852-6262 (free, 24/7). in immediate danger, call 911.</p>
+  </footer>
+</div>
+<script>
+(function(){
+  var f=document.getElementById('signup-form');
+  f.addEventListener('submit',function(e){
+    if(!window.fetch) return;
+    e.preventDefault();
+    var b=f.querySelector('button'),m=f.querySelector('.msg');
+    b.disabled=true;b.textContent='sending…';m.hidden=true;
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}})
+      .then(function(r){return r.json().catch(function(){return {};}).then(function(j){return {ok:r.ok,j:j};});})
+      .then(function(res){
+        if(res.ok && (!res.j.status || res.j.status==='success' || res.j.status==='quarantined')){
+          f.hidden=true;document.getElementById('done').hidden=false;
+        } else { throw new Error(); }
+      })
+      .catch(function(){b.disabled=false;b.textContent='send me the free stuff';m.textContent="that didn't go through. check your email and try again.";m.hidden=false;});
+  });
+})();
+</script>
+</body>
+</html>
