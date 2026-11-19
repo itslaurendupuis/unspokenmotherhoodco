@@ -76,6 +76,9 @@ footer{display:flex;flex-direction:column;align-items:center;gap:10px;text-align
 footer .ig{font-size:15px;font-weight:800;text-decoration:none}
 footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
 footer .help{margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--muted);max-width:340px}
+.txt .pill.line{margin-top:6px}
+.textbtn{align-self:flex-start;margin-top:-6px;padding:6px 0;border:0;background:none;color:var(--ink);font:inherit;font-size:14px;font-weight:700;text-decoration:underline;cursor:pointer}
+.item.picked{outline:3px solid var(--berryink);outline-offset:-3px}
 @media (prefers-reduced-motion:no-preference){.pill{transition:transform .15s}.pill:active{transform:scale(.97)}}
 </style>
 </head>
@@ -97,16 +100,18 @@ footer .help{margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--muted);ma
 
   <section id="free">
     <div class="h2row"><h2>free for you</h2><span class="hand">no catch</span></div>
-    <div class="item"><div class="cover c1" aria-hidden="true"><b>the mental load</b><span class="hand">list</span></div>
-      <div class="txt"><h3>the mental load list</h3><p>everything you carry in your head, on one page. print it, or hand it to the person who keeps asking what they can do.</p></div></div>
-    <div class="item"><div class="cover c2" aria-hidden="true"><b>for</b><span class="hand">2am</span></div>
-      <div class="txt"><h3>the 2am lock screens</h3><p>6 lock screens for when your brain won't shut off and everybody else is asleep.</p></div></div>
-    <div class="item"><div class="cover c3" aria-hidden="true"><b>who i was</b><span class="hand">before</span></div>
-      <div class="txt"><h3>the before list</h3><p>a little page to write down the things that were yours before kids, so you can pick one back up.</p></div></div>
+    <div class="item" id="mental-load"><div class="cover c1" aria-hidden="true"><b>the mental load</b><span class="hand">list</span></div>
+      <div class="txt"><h3>the mental load list</h3><p>everything you carry in your head, on one page. print it, or hand it to the person who keeps asking what they can do.</p><button class="pill line" type="button" data-pick="mental-load">send me this one</button></div></div>
+    <div class="item" id="2am"><div class="cover c2" aria-hidden="true"><b>for</b><span class="hand">2am</span></div>
+      <div class="txt"><h3>the 2am lock screens</h3><p>6 lock screens for when your brain won't shut off and everybody else is asleep.</p><button class="pill line" type="button" data-pick="2am">send me this one</button></div></div>
+    <div class="item" id="before"><div class="cover c3" aria-hidden="true"><b>who i was</b><span class="hand">before</span></div>
+      <div class="txt"><h3>the before list</h3><p>a little page to write down the things that were yours before kids, so you can pick one back up.</p><button class="pill line" type="button" data-pick="before">send me this one</button></div></div>
 
     <div class="signup" id="get">
       <form id="signup-form" action="https://app.kit.com/forms/10214036/subscriptions" method="post" style="display:flex;flex-direction:column;gap:12px">
-        <div class="big">want all 3? they're free.</div>
+        <div class="big" id="pick-title">want all 3? they're free.</div>
+        <button class="textbtn" type="button" id="pick-all" hidden>or get all 3</button>
+        <input type="hidden" id="pick-field" name="fields[unspoken_freebie]" value="all 3">
         <label for="fname">first name</label>
         <input id="fname" name="fields[first_name]" type="text" autocomplete="given-name" placeholder="your first name">
         <label for="email">email</label>
@@ -119,9 +124,9 @@ footer .help{margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--muted);ma
         <div class="big" style="margin-bottom:6px">they're yours</div>
         <p class="fine" style="margin:0 0 14px">tap to download. on your phone, open a lock screen and press and hold to save it to your photos.</p>
         <div class="dl">
-          <a href="free/Mental-Load-List.pdf" download>the mental load list <span>PDF</span></a>
-          <a href="free/Who-I-Was-Before.pdf" download>the before list <span>PDF</span></a>
-          <div class="locks" aria-label="the 2am lock screens">
+          <a data-item="mental-load" href="free/Mental-Load-List.pdf" download>the mental load list <span>PDF</span></a>
+          <a data-item="before" href="free/Who-I-Was-Before.pdf" download>the before list <span>PDF</span></a>
+          <div data-item="2am" class="locks" aria-label="the 2am lock screens">
             <a href="free/2am-Lock-Screen-1.png"><img src="free/2am-Lock-Screen-1.png" alt="lock screen: the dishes can wait. sleep can't" loading="lazy"></a>
             <a href="free/2am-Lock-Screen-2.png"><img src="free/2am-Lock-Screen-2.png" alt="lock screen: you don't have to figure it all out tonight" loading="lazy"></a>
             <a href="free/2am-Lock-Screen-3.png"><img src="free/2am-Lock-Screen-3.png" alt="lock screen: everybody's asleep. you're allowed to rest too" loading="lazy"></a>
@@ -129,6 +134,7 @@ footer .help{margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--muted);ma
             <a href="free/2am-Lock-Screen-5.png"><img src="free/2am-Lock-Screen-5.png" alt="lock screen: you did enough today" loading="lazy"></a>
             <a href="free/2am-Lock-Screen-6.png"><img src="free/2am-Lock-Screen-6.png" alt="lock screen: put the phone down, friend. seriously" loading="lazy"></a>
           </div>
+          <button class="pill line" type="button" id="show-rest" hidden>want the other 2 too?</button>
         </div>
       </div>
     </div>
@@ -145,7 +151,17 @@ footer .help{margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--muted);ma
       <div class="body">
         <p>a private journal app for postpartum. no blank pages, just little prompts for the hard days and the good ones. made by a mom who's been there.</p>
         <div class="price"><b>$29</b><span>launch week, then $39</span></div>
-        <a class="pill solid" href="https://itslaurendupuis.com/waitlist/">save my spot</a>
+        <form id="wait-form" action="https://app.kit.com/forms/10195710/subscriptions" method="post" style="display:flex;flex-direction:column;gap:10px">
+          <label for="wait-email" style="font-size:13px;font-weight:700;margin-bottom:-4px">get in first</label>
+          <input id="wait-email" name="email_address" type="email" required autocomplete="email" placeholder="you@email.com" style="height:48px;padding:0 14px;border:1.5px solid #CDBFC3;border-radius:4px;background:#fff;color:var(--ink);font:inherit;font-size:16px">
+          <button class="pill solid" type="submit">save my spot</button>
+          <p class="msg" role="status" hidden></p>
+          <p class="fine" style="margin:0;font-size:13px;color:var(--muted)">free to join. no spam.</p>
+        </form>
+        <div id="wait-done" hidden>
+          <div style="font-size:20px;font-weight:900;letter-spacing:-.03em">you're on the list</div>
+          <p style="margin:6px 0 0;font-size:14px;color:var(--muted)">check your email and tap the button to confirm. (peek in promotions, just in case.)</p>
+        </div>
       </div>
     </article>
     <article class="item">
@@ -171,21 +187,47 @@ footer .help{margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--muted);ma
 </div>
 <script>
 (function(){
-  var f=document.getElementById('signup-form');
-  f.addEventListener('submit',function(e){
-    if(!window.fetch) return;
-    e.preventDefault();
-    var b=f.querySelector('button'),m=f.querySelector('.msg');
-    b.disabled=true;b.textContent='sending…';m.hidden=true;
-    fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}})
-      .then(function(r){return r.json().catch(function(){return {};}).then(function(j){return {ok:r.ok,j:j};});})
-      .then(function(res){
-        if(res.ok && (!res.j.status || res.j.status==='success' || res.j.status==='quarantined')){
-          f.hidden=true;document.getElementById('done').hidden=false;
-        } else { throw new Error(); }
-      })
-      .catch(function(){b.disabled=false;b.textContent='send me the free stuff';m.textContent="that didn't go through. check your email and try again.";m.hidden=false;});
-  });
+  var NAMES={'mental-load':'the mental load list','2am':'the 2am lock screens','before':'the before list'};
+  var pick='all';
+  var title=document.getElementById('pick-title'),field=document.getElementById('pick-field'),all=document.getElementById('pick-all');
+  function setPick(k,scroll){
+    pick=NAMES[k]?k:'all';
+    document.querySelectorAll('.item.picked').forEach(function(el){el.classList.remove('picked')});
+    var sb=document.querySelector('#signup-form button[type=submit]');sb.textContent=pick==='all'?'send me the free stuff':'send it to me';
+    if(pick==='all'){title.textContent="want all 3? they're free.";field.value='all 3';all.hidden=true;}
+    else{title.textContent='get '+NAMES[pick];field.value=NAMES[pick];all.hidden=false;document.getElementById(pick).classList.add('picked');}
+    if(scroll){var g=document.getElementById('get');g.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});setTimeout(function(){document.getElementById('fname').focus({preventScroll:true})},400);}
+  }
+  document.querySelectorAll('[data-pick]').forEach(function(b){b.addEventListener('click',function(){setPick(b.getAttribute('data-pick'),true)})});
+  all.addEventListener('click',function(){setPick('all',false)});
+  var h=(location.hash||'').slice(1);
+  if(NAMES[h]){setPick(h,false);setTimeout(function(){setPick(h,true)},50);}
+  function showDone(){
+    var only=pick!=='all';
+    document.querySelectorAll('[data-item]').forEach(function(el){el.hidden=only&&el.getAttribute('data-item')!==pick});
+    var rest=document.getElementById('show-rest');rest.hidden=!only;
+    rest.onclick=function(){document.querySelectorAll('[data-item]').forEach(function(el){el.hidden=false});rest.hidden=true;};
+    document.querySelector('#done .big').textContent=only?"it's yours":"they're yours";
+  }
+  function wire(f,okFn,label){
+    f.addEventListener('submit',function(e){
+      if(!window.fetch) return;
+      e.preventDefault();
+      var b=f.querySelector('button[type=submit]'),m=f.querySelector('.msg');
+      b.disabled=true;b.textContent='sending…';m.hidden=true;
+      fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}})
+        .then(function(r){return r.json().catch(function(){return {};}).then(function(j){return {ok:r.ok,j:j};});})
+        .then(function(res){
+          if(res.ok && (!res.j.status || res.j.status==='success' || res.j.status==='quarantined')){okFn();}
+          else { throw new Error(); }
+        })
+        .catch(function(){b.disabled=false;b.textContent=typeof label==='function'?label():label;m.textContent="that didn't go through. check your email and try again.";m.hidden=false;});
+    });
+  }
+  var sf=document.getElementById('signup-form');
+  wire(sf,function(){showDone();sf.hidden=true;document.getElementById('done').hidden=false;},function(){return pick==='all'?'send me the free stuff':'send it to me'});
+  var wf=document.getElementById('wait-form');
+  wire(wf,function(){wf.hidden=true;document.getElementById('wait-done').hidden=false;},'save my spot');
 })();
 </script>
 </body>
