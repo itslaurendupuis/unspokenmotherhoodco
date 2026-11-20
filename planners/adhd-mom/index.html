@@ -29,8 +29,17 @@ body[data-style="espresso"]{--deep:#3B2A20;--night:#2A1E17;--berry:#D6CEC5;--ber
 /* style chooser (top) */
 .lookbar{padding-bottom:18px}
 .lookbar p{margin:0 0 8px;text-align:center;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.looks{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;max-width:760px;margin:0 auto}
-@media (max-width:520px){.looks{grid-template-columns:repeat(3,minmax(0,1fr))}}
+/* swipe rows: one line of tiles, swipe sideways, next tile peeks */
+.looks,.styles{position:relative;display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 2px;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:2px 2px 4px;overscroll-behavior-x:contain}
+.looks::-webkit-scrollbar,.styles::-webkit-scrollbar{display:none}
+.looks>.opt,.styles>.opt{flex:0 0 auto;scroll-snap-align:start}
+.looks{max-width:760px;margin:0 auto}
+.looks>.opt{width:38%}
+.styles>.opt{width:40%}
+@media (min-width:560px){.looks>.opt{width:28%}}
+@media (min-width:760px){.looks>.opt{width:calc((100% - 32px)/5)}.styles>.opt{width:31%}}
+.swipehint{display:block;margin-top:6px;font-size:12px;font-weight:700;color:var(--muted);text-align:right}
+@media (min-width:760px){.lookbar .swipehint{display:none}}
 .looks .opt label{padding:6px 6px 10px;gap:6px}
 .looks img{display:block;width:100%;height:auto;aspect-ratio:2360/1640;object-fit:cover;border-radius:3px}
 
@@ -190,8 +199,6 @@ h2{margin:0;font-size:clamp(30px,7vw,40px);font-weight:900;letter-spacing:-.04em
 .picker{display:grid;gap:18px}
 fieldset{border:0;margin:0;padding:0;min-width:0}
 legend{padding:0;margin-bottom:10px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.styles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-@media (max-width:400px){.styles{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .years{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .opt{position:relative}
 .opt input{position:absolute;opacity:0;pointer-events:none}
@@ -254,12 +261,13 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
 <div class="inner lookbar">
   <p id="looklab">pick a style to see it</p>
   <div class="looks" role="radiogroup" aria-labelledby="looklab">
-    <div class="opt"><input type="radio" name="look" id="lk-berry" value="berry"><label for="lk-berry"><img src="/planners/img/berry-p-cov0.jpg" alt="" width="900" height="625">Berry</label></div>
+    <div class="opt"><input type="radio" name="look" id="lk-espresso" value="espresso"><label for="lk-espresso"><img src="/planners/img/espresso-p-cov0.jpg" alt="" width="900" height="625">Espresso Studio</label></div>
     <div class="opt"><input type="radio" name="look" id="lk-mono" value="mono"><label for="lk-mono"><img src="/planners/img/mono-p-cov1.jpg" alt="" width="900" height="625">Monochrome</label></div>
     <div class="opt"><input type="radio" name="look" id="lk-garden" value="garden" checked><label for="lk-garden"><img src="/planners/img/garden-p-cov0.jpg" alt="" width="900" height="625">Garden Lace</label></div>
+    <div class="opt"><input type="radio" name="look" id="lk-berry" value="berry"><label for="lk-berry"><img src="/planners/img/berry-p-cov0.jpg" alt="" width="900" height="625">Berry</label></div>
     <div class="opt"><input type="radio" name="look" id="lk-simplicity" value="simplicity"><label for="lk-simplicity"><img src="/planners/img/simplicity-p-cov0.jpg" alt="" width="900" height="625">Simplicity</label></div>
-    <div class="opt"><input type="radio" name="look" id="lk-espresso" value="espresso"><label for="lk-espresso"><img src="/planners/img/espresso-p-cov0.jpg" alt="" width="900" height="625">Espresso Studio</label></div>
   </div>
+  <span class="swipehint" aria-hidden="true">swipe for more styles →</span>
 </div>
 
 <header class="hero"><div class="inner">
@@ -415,12 +423,13 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
       <fieldset>
         <legend>1. style</legend>
         <div class="styles">
-          <div class="opt"><input type="radio" name="style" id="st-berry" value="berry"><label for="st-berry"><span class="sw"><i style="background:#8A5A66"></i><i style="background:#D8B6B8"></i></span>Berry<small>the original</small></label></div>
+          <div class="opt"><input type="radio" name="style" id="st-espresso" value="espresso"><label for="st-espresso"><span class="sw"><i style="background:#3B2A20"></i><i style="background:#8C7B6F"></i></span>Espresso Studio<small>espresso + mocha</small></label></div>
           <div class="opt"><input type="radio" name="style" id="st-mono" value="mono"><label for="st-mono"><span class="sw"><i style="background:#141414"></i><i style="background:#fff"></i></span>Monochrome<small>black + white</small></label></div>
           <div class="opt"><input type="radio" name="style" id="st-garden" value="garden" checked><label for="st-garden"><span class="sw"><i style="background:#1D3A1F"></i><i style="background:#B5C8A3"></i></span>Garden Lace<small>forest + sage</small></label></div>
+          <div class="opt"><input type="radio" name="style" id="st-berry" value="berry"><label for="st-berry"><span class="sw"><i style="background:#8A5A66"></i><i style="background:#D8B6B8"></i></span>Berry<small>the original</small></label></div>
           <div class="opt"><input type="radio" name="style" id="st-simplicity" value="simplicity"><label for="st-simplicity"><span class="sw"><i style="background:#F2EFEA"></i><i style="background:#B8975D"></i></span>Simplicity<small>ivory + gold</small></label></div>
-          <div class="opt"><input type="radio" name="style" id="st-espresso" value="espresso"><label for="st-espresso"><span class="sw"><i style="background:#3B2A20"></i><i style="background:#8C7B6F"></i></span>Espresso Studio<small>espresso + mocha</small></label></div>
         </div>
+        <span class="swipehint" aria-hidden="true">swipe for more →</span>
       </fieldset>
       <fieldset>
         <legend>2. dated or undated</legend>
@@ -606,14 +615,20 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
     if(look()!==s)document.getElementById("lk-"+s).checked=true;
     if(document.body.dataset.style!==s)restyle(s);
     if(history.replaceState)history.replaceState(null,"","#"+s+"-"+y);
+    if(!firstShow||hadHash){showTile("lk-"+s);showTile("st-"+s)}
   }
+  /* swipe rows: slide the picked tile into view (sideways only, never moves the page) */
+  var calm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches,firstShow=true,hadHash=(location.hash||"").length>1;
+  function showTile(id){var o=document.getElementById(id).parentNode,c=o.parentNode;if(c.scrollWidth<=c.clientWidth)return;
+    var l=o.offsetLeft-(c.clientWidth-o.offsetWidth)/2;if(l<0)l=0;
+    if(c.scrollTo)c.scrollTo({left:l,behavior:(calm||firstShow)?"auto":"smooth"});else c.scrollLeft=l}
   document.querySelectorAll('input[name="hyear"]').forEach(function(i){i.addEventListener("change",function(){document.getElementById("yr-"+i.value).checked=true;render()})});
   document.querySelectorAll('input[name="look"]').forEach(function(i){i.addEventListener("change",function(){document.getElementById("st-"+i.value).checked=true;render()})});
   var h=(location.hash||"").slice(1).split("-");
   if(S[h[0]])document.getElementById("st-"+h[0]).checked=true;
   if(h[1]==="2027"||h[1]==="undated")document.getElementById("yr-"+h[1]).checked=true;
   document.querySelectorAll('input[name="style"],input[name="year"]').forEach(function(i){i.addEventListener("change",render)});
-  render();
+  render();firstShow=false;
 
   /* sticky bar: shows after the hero, hides at the buy box */
   var bar=document.getElementById("stickybuy"),hero=document.querySelector(".hero"),buyS=document.getElementById("buy");
