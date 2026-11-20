@@ -76,7 +76,15 @@ a{color:var(--berryink)}
 .hero h1{margin:8px 0 0;font-size:clamp(46px,11vw,64px);font-weight:900;letter-spacing:-.045em;line-height:.9;text-wrap:balance}
 .hero h1 .hand{display:block;margin-top:8px;font-size:clamp(30px,7vw,40px);letter-spacing:0;line-height:1;color:var(--berry)}
 .hero p{margin:16px 0 0;font-size:17px;line-height:1.45;color:var(--blush);max-width:36ch}
-.herobtns{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:22px}
+.herobtns{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-top:14px}
+.hyear{display:inline-flex;gap:4px;padding:4px;margin-top:22px;border-radius:999px;background:rgba(255,255,255,.12)}
+.hyear input{position:absolute;opacity:0;pointer-events:none}
+.hyear label{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:999px;font-size:14px;font-weight:800;color:var(--card);cursor:pointer}
+.hyear input:checked+label{background:var(--card);color:var(--ink)}
+.hyear input:focus-visible+label{outline:3px solid var(--berry);outline-offset:2px}
+.seeall{color:var(--card);font-weight:700;font-size:14.5px;text-underline-offset:4px}
+.lookbuy{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 16px;padding-top:4px}
+.lookbuy a.more{font-size:14px;font-weight:700}
 .pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 24px;border-radius:999px;font-family:inherit;font-weight:800;font-size:15px;text-decoration:none;border:0;cursor:pointer}
 .pill.berry{background:var(--berry);color:var(--ink)}
 .pill.solid{background:var(--berryink);color:var(--card)}
@@ -228,7 +236,7 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
 .stickybuy.show{transform:none}
 .stickybuy span{font-weight:800;font-size:14.5px}
 .stickybuy b{background:var(--berry);color:var(--ink);border-radius:999px;padding:11px 16px;font-size:14px;white-space:nowrap}
-@media (min-width:760px){.stickybuy{display:none}}
+@media (min-width:760px){.stickybuy{left:0;right:0;margin:0 auto;width:440px}}
 @media (prefers-reduced-motion:reduce){.stickybuy{transition:none}}
 @media (prefers-reduced-motion:no-preference){.pill{transition:transform .15s}.pill:active{transform:scale(.97)}}
 </style>
@@ -253,8 +261,12 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
     <span class="kicker">digital planner · iPad + Android</span>
     <h1>the ADHD mom planner <span class="hand">for the mom brain that's holding everything</span></h1>
     <p>kid stuff, dinners, appointments, the hard days and a little room for you. tap a tab and you're there. no hourly boxes.</p>
-    <div class="herobtns"><a class="pill berry" href="#buy">pick your style ↓</a></div>
-    <p class="fine">$9.99 · instant download · 3 styles · 2027 or undated</p>
+    <div class="hyear" role="radiogroup" aria-label="Dated or undated">
+      <span><input type="radio" name="hyear" id="hy-2027" value="2027" checked><label for="hy-2027">2027</label></span>
+      <span><input type="radio" name="hyear" id="hy-undated" value="undated"><label for="hy-undated">undated</label></span>
+    </div>
+    <div class="herobtns"><a class="pill berry buylink buytxt" href="https://buy.stripe.com/00w7sN50v96QdxSaCd6Na06">get the Garden Lace planner · $9.99</a><a class="seeall" href="#look">see everything first ↓</a></div>
+    <p class="fine">instant download · iPad + Android · secure checkout by Stripe</p>
   </div>
   <div class="vid">
     <video id="herovid" src="/planners/img/garden.mp4" poster="/planners/img/garden-poster.jpg" autoplay muted loop playsinline aria-label="A short video flipping through the planner pages"></video>
@@ -282,6 +294,7 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
     </div>
     <div class="stickers" id="bstickers"></div>
     <p class="note" id="bnote"></p>
+    <div class="lookbuy"><a class="pill solid buylink buytxt" href="https://buy.stripe.com/00w7sN50v96QdxSaCd6Na06">get the Garden Lace planner · $9.99</a><a class="more" href="#tour">or keep looking ↓</a></div>
   </div>
 </div></section>
 
@@ -445,7 +458,7 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
   <details><summary>what's different between the styles?</summary><p>only the look. Berry, Monochrome and Garden Lace have the same pages inside. the sticker count is different for each style, and Berry comes with 6 covers instead of 3.</p></details>
   <details><summary>can I get a refund?</summary><p>because it's a digital download you get right away, sales are final. if anything isn't working, reply to your download email and I'll help.</p></details>
   <details><summary>can I share it?</summary><p>it's for your personal use, so please don't share or resell the files.</p></details>
-  <div class="endbuy"><a class="pill solid" href="#buy">pick your style</a><p class="fine">$9.99 · instant download</p></div>
+  <div class="endbuy"><a class="pill solid buylink buytxt" href="https://buy.stripe.com/00w7sN50v96QdxSaCd6Na06">get the Garden Lace planner · $9.99</a><p class="fine">instant download · <a href="#buy">compare styles</a></p></div>
 </div></section>
 
 <footer class="inner">
@@ -453,7 +466,7 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
   <div class="mark">unspoken</div>
 </footer>
 
-<a class="stickybuy" id="stickybuy" href="#buy" aria-label="Pick your style, 9.99 dollars"><span>ADHD mom planner · $9.99</span><b>pick a style</b></a>
+<a class="stickybuy buylink" id="stickybuy" href="https://buy.stripe.com/00w7sN50v96QdxSaCd6Na06"><span id="sbtxt">Garden Lace · 2027</span><b>buy · $9.99</b></a>
 
 <script>
 (function(){
@@ -560,12 +573,17 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
       var i=document.createElement("img");i.src=src(p[0]);i.alt="";i.loading="lazy";b.appendChild(i);b.onclick=function(){cur=p[0];render()};th.appendChild(b)});
     document.getElementById("picked").textContent=nm+" · "+yl;
     var buy=document.getElementById("buybtn");buy.href=LINKS[s+"-"+y];buy.textContent="get the "+nm+" planner · $9.99";
+    document.querySelectorAll(".buylink").forEach(function(a){a.href=LINKS[s+"-"+y]});
+    document.querySelectorAll(".buytxt").forEach(function(a){a.textContent="get the "+nm+" planner · $9.99"});
+    document.getElementById("sbtxt").textContent=nm+" · "+yl;
+    document.getElementById("hy-"+y).checked=true;
     document.getElementById("stk").textContent=S[s].st+" stickers";
     document.getElementById("pages").textContent=S[s].pages[y]+" linked pages";
     if(look()!==s)document.getElementById("lk-"+s).checked=true;
     if(document.body.dataset.style!==s)restyle(s);
     if(history.replaceState)history.replaceState(null,"","#"+s+"-"+y);
   }
+  document.querySelectorAll('input[name="hyear"]').forEach(function(i){i.addEventListener("change",function(){document.getElementById("yr-"+i.value).checked=true;render()})});
   document.querySelectorAll('input[name="look"]').forEach(function(i){i.addEventListener("change",function(){document.getElementById("st-"+i.value).checked=true;render()})});
   var h=(location.hash||"").slice(1).split("-");
   if(S[h[0]])document.getElementById("st-"+h[0]).checked=true;
