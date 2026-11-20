@@ -79,6 +79,17 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
 footer .help{margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--muted);max-width:340px}
 .txt .pill.line{margin-top:6px}
 .textbtn{align-self:flex-start;margin-top:-6px;padding:6px 0;border:0;background:none;color:var(--ink);font:inherit;font-size:14px;font-weight:700;text-decoration:underline;cursor:pointer}
+.plan{background:var(--card);border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
+.plan-img img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover}
+.plan-body{padding:18px 16px 20px;display:flex;flex-direction:column;gap:12px}
+.plan-body h3{margin:0;font-size:24px;font-weight:900;letter-spacing:-.04em;line-height:1}
+.plan-body p{margin:0;font-size:14px;line-height:1.45;color:var(--muted)}
+.plan-styles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.plan-styles a{display:flex;flex-direction:column;gap:6px;align-items:center;font-size:12.5px;font-weight:800;color:var(--ink);text-decoration:none;text-align:center}
+.plan-styles img{display:block;width:100%;height:auto;aspect-ratio:2360/1640;object-fit:cover;border-radius:3px;box-shadow:0 4px 10px rgba(47,36,40,.12)}
+.plan-buy{display:flex;align-items:baseline;gap:10px}
+.plan-buy b{font-size:26px;font-weight:900;letter-spacing:-.03em}
+.plan-buy span{font-size:13px;color:var(--muted)}
 .item.picked{outline:3px solid var(--berryink);outline-offset:-3px}
 @media (prefers-reduced-motion:no-preference){.pill{transition:transform .15s}.pill:active{transform:scale(.97)}}
 </style>
@@ -143,12 +154,18 @@ footer .help{margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--muted);ma
 
   <section id="planners">
     <div class="h2row"><h2>planners</h2><span class="hand">for the mom brain</span></div>
-    <article class="item">
-      <img src="/planners/img/garden-2027-hero.jpg" alt="" width="96" height="96" style="flex:0 0 96px;width:96px;height:96px;object-fit:cover;border-radius:4px">
-      <div class="txt" style="gap:8px">
+    <article class="plan">
+      <a href="/planners/adhd-mom/" class="plan-img"><img src="/planners/img/garden-2027-hero.jpg" alt="The ADHD Mom Planner on an iPad, Garden Lace style" width="720" height="720" loading="lazy"></a>
+      <div class="plan-body">
         <h3>the ADHD mom planner</h3>
-        <p>digital planner for iPad + Android. 3 styles, 2027 or undated. $9.99</p>
-        <a class="pill line" href="/planners/adhd-mom/">see the styles</a>
+        <p>kid stuff, dinners, the hard days and a little room for you. for iPad + Android, 2027 or undated. no hourly boxes.</p>
+        <div class="plan-styles">
+          <a href="/planners/adhd-mom/#berry-2027"><img src="/planners/img/berry-p-cov0.jpg" alt="" width="900" height="625" loading="lazy">Berry</a>
+          <a href="/planners/adhd-mom/#mono-2027"><img src="/planners/img/mono-p-cov1.jpg" alt="" width="900" height="625" loading="lazy">Monochrome</a>
+          <a href="/planners/adhd-mom/#garden-2027"><img src="/planners/img/garden-p-cov0.jpg" alt="" width="900" height="625" loading="lazy">Garden Lace</a>
+        </div>
+        <div class="plan-buy"><b>$9.99</b><span>instant download</span></div>
+        <a class="pill solid" href="/planners/adhd-mom/">see inside + pick your style</a>
       </div>
     </article>
   </section>

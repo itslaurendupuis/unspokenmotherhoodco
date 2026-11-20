@@ -4,149 +4,554 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>the ADHD mom planner · unspoken motherhood co</title>
-<meta name="description" content="a digital planner for the mom brain that's holding everything. 3 styles, 2027 or undated, for iPad and Android. $9.99 instant download.">
+<meta name="description" content="the ADHD mom planner: a digital planner for the mom brain that's holding everything. 3 styles, 2027 or undated, for iPad and Android. $9.99 instant download.">
 <meta property="og:title" content="the ADHD mom planner · unspoken motherhood co">
 <meta property="og:description" content="for the mom brain that's holding everything. 3 styles, 2027 or undated. $9.99 instant download.">
 <meta property="og:image" content="https://unspokenmotherhoodco.com/planners/img/garden-2027-hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800;900&family=Caveat:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800;900&family=Caveat:wght@600;700&family=Oswald:wght@500&family=League+Spartan:wght@400;600&family=Bodoni+Moda:wght@600&family=Pinyon+Script&family=Playfair+Display:ital@1&display=swap">
 <style>
-:root{--vanilla:#F2EEE9;--card:#FBF8F4;--blush:#E8DCE0;--berry:#D8B6B8;--berryink:#8A5A66;--fern:#8E9A92;--ink:#2F2428;--night:#1C1517;--muted:#5A4A50;--line:#DCCFD2;color-scheme:light}
+/* layout: the unspoken site's own look (same tokens, Inter Tight + Caveat), one long phone-first column.
+   dark hero with the planner video, a page tour inside an iPad frame, a low-battery band, the style picker as the buy box. */
+:root{
+  --vanilla:#F2EEE9; --card:#FBF8F4; --blush:#E8DCE0; --berry:#D8B6B8; --berryink:#8A5A66; --fern:#8E9A92;
+  --ink:#2F2428; --night:#1C1517; --muted:#5A4A50; --line:#DCCFD2; --petal:#F0E3E3; --draft:#FFF3CF;
+  --sans:'Inter Tight','Helvetica Neue',Arial,sans-serif; --hand:Caveat,'Bradley Hand',cursive;
+  --deep:#2F2428; color-scheme:light;
+}
+/* each planner style re-colors the page accents (logo stays unspoken berry) */
+body[data-style="mono"]{--deep:#141414;--night:#1C1C1C;--berry:#E1E0DB;--berryink:#141414;--blush:#E1E0DB;--line:#CFCECA}
+body[data-style="garden"]{--deep:#1D3A1F;--night:#142515;--berry:#B5C8A3;--berryink:#3F6A42;--blush:#DCE6D1;--line:#C9D3BE}
+
+/* style chooser (top) */
+.lookbar{padding-bottom:18px}
+.lookbar p{margin:0 0 8px;text-align:center;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.looks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:520px;margin:0 auto}
+.looks .opt label{padding:6px 6px 10px;gap:6px}
+.looks img{display:block;width:100%;height:auto;aspect-ratio:2360/1640;object-fit:cover;border-radius:3px}
+
+/* brand board */
+.board{background:var(--card);border-radius:6px;padding:18px;display:grid;gap:18px}
+@media (min-width:760px){.board{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);padding:22px;gap:22px}}
+.board .cov{display:block;width:100%;height:auto;aspect-ratio:2360/1640;object-fit:cover;border-radius:4px;box-shadow:0 10px 24px rgba(47,36,40,.16)}
+.bl{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.morecov{display:none}
+@media (min-width:760px){.morecov{display:block;margin-top:18px}.morecov div{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.morecov img{display:block;width:100%;height:auto;aspect-ratio:2360/1640;object-fit:cover;border-radius:4px;box-shadow:0 6px 14px rgba(47,36,40,.12)}}
+.swatches{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.swatches div{display:grid;gap:4px;font-size:11.5px;font-weight:700;line-height:1.2;color:var(--muted)}
+.swatches i{display:block;aspect-ratio:1;border-radius:4px;border:1px solid rgba(47,36,40,.14)}
+.fonts{display:grid;gap:10px}
+.fonts div{display:grid;gap:2px;border-top:1px solid var(--line);padding-top:8px}
+.fonts .smp{font-size:26px;line-height:1.15;color:var(--ink);overflow-wrap:anywhere}
+.fonts small{font-size:12.5px;color:var(--muted);font-weight:600}
+.stickers{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 16px;padding:14px 8px 4px;border-top:1px solid var(--line)}
+.stickers img{display:block;height:auto;max-height:62px;max-width:150px;width:auto}
+.stickers img.tall{max-height:80px}
+.board .note{grid-column:1/-1;margin:0;font-size:14.5px;color:var(--muted);text-align:center}
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--vanilla);color:var(--ink)}
-body{font-family:'Inter Tight','Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased}
-.wrap{max-width:440px;margin:0 auto;padding:28px max(16px,env(safe-area-inset-right,0px)) 36px max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:22px}
-.hand{font-family:Caveat,'Bradley Hand',cursive;font-weight:700}
+html,body{background:var(--vanilla);color:var(--ink)}
+body{font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:var(--berryink)}
 :focus-visible{outline:3px solid var(--berryink);outline-offset:2px}
-header{display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
-header a{color:inherit;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:2px}
-.logo{font-size:34px;font-weight:900;letter-spacing:-.04em;line-height:1}
-.logo-sub{font-size:22px;color:var(--berryink);line-height:1}
-.nav{display:flex;gap:18px;justify-content:center;font-size:14px;font-weight:700}
+.hand{font-family:var(--hand);font-weight:700}
+.inner{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.draftbar{background:var(--draft);color:var(--ink);font-size:13px;font-weight:700;text-align:center;padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* top */
+.top{display:flex;flex-direction:column;align-items:center;gap:10px;padding-block:22px 18px}
+.top a.logo-link{display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none;color:var(--ink)}
+.logo{font-size:30px;font-weight:900;letter-spacing:-.04em;line-height:1}
+.logo-sub{font-size:20px;color:#8A5A66;line-height:1}
+.nav{display:flex;gap:18px;font-size:14px;font-weight:700}
 .nav a{color:var(--muted);text-decoration:none}
 .nav a[aria-current]{color:var(--ink);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:2px}
-.back{align-self:flex-start;font-size:14px;font-weight:700;color:var(--ink);text-underline-offset:4px}
-.gallery{display:flex;flex-direction:column;gap:8px}
-.main{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:4px;background:var(--blush)}
+
+/* hero */
+.hero{background:var(--deep);color:var(--card)}
+.hero .inner{padding-block:36px 40px;display:grid;gap:26px;align-items:center}
+@media (min-width:760px){.hero .inner{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.kicker{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--berry)}
+.hero h1{margin:8px 0 0;font-size:clamp(46px,11vw,64px);font-weight:900;letter-spacing:-.045em;line-height:.9;text-wrap:balance}
+.hero h1 .hand{display:block;margin-top:8px;font-size:clamp(30px,7vw,40px);letter-spacing:0;line-height:1;color:var(--berry)}
+.hero p{margin:16px 0 0;font-size:17px;line-height:1.45;color:var(--blush);max-width:36ch}
+.herobtns{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:22px}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 24px;border-radius:999px;font-family:inherit;font-weight:800;font-size:15px;text-decoration:none;border:0;cursor:pointer}
+.pill.berry{background:var(--berry);color:var(--ink)}
+.pill.solid{background:var(--berryink);color:var(--card)}
+.pill.line{background:transparent;border:2px solid var(--ink);color:var(--ink);min-height:46px}
+.hero .fine{margin-top:12px;font-size:13px;color:var(--berry)}
+.vid{position:relative;max-width:420px;width:100%;justify-self:center}
+.vid video{display:block;width:100%;height:auto;aspect-ratio:1;border-radius:6px;background:var(--night)}
+.sticker{position:absolute;right:-6px;top:-18px;width:104px;height:104px;border-radius:50%;background:var(--berry);color:var(--ink);display:grid;place-items:center;text-align:center;transform:rotate(9deg);line-height:1;box-shadow:0 8px 18px rgba(0,0,0,.25)}
+.sticker b{display:block;font-size:30px;font-weight:900;letter-spacing:-.04em}
+.sticker span{display:block;font-family:var(--hand);font-size:19px;margin-top:2px}
+
+/* ticker */
+.ticker{overflow:hidden;background:var(--berry);color:var(--ink)}
+.ticker .track{display:flex;width:max-content;animation:tick 40s linear infinite}
+.ticker span{white-space:nowrap;padding:9px 0;font-family:var(--hand);font-weight:700;font-size:21px}
+.ticker span::after{content:"\2661";margin:0 18px;color:var(--berryink)}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker .track{animation:none}}
+
+section{padding-block:52px 4px}
+h2{margin:0;font-size:clamp(30px,7vw,40px);font-weight:900;letter-spacing:-.04em;line-height:1;text-wrap:balance}
+.h2row{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:10px}
+.h2row .hand{font-size:clamp(24px,5.5vw,30px);color:var(--berryink);line-height:1}
+.sub{margin:0 0 18px;color:var(--muted);font-size:16px;max-width:56ch}
+
+/* if you've ever */
+.ifever{background:var(--card);border-radius:6px;padding:24px 22px;display:grid;gap:12px;font-size:18px;line-height:1.45}
+.ifever p{margin:0}
+.ifever .end{font-weight:800}
+
+/* tour */
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 2px 12px;margin:0 -2px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;font:inherit;font-size:14px;font-weight:800;padding:9px 14px;border-radius:999px;border:2px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.ipad{background:var(--night);border-radius:22px;padding:12px;box-shadow:0 18px 40px rgba(47,36,40,.22)}
+.ipad img{display:block;width:100%;height:auto;aspect-ratio:2360/1640;object-fit:cover;border-radius:10px;background:var(--card)}
+.tourtext{display:grid;gap:10px;margin-top:20px}
+@media (min-width:760px){.tourtext{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:24px}}
+.tourtext h3{margin:0;font-size:26px;font-weight:900;letter-spacing:-.03em;line-height:1.05}
+.tourtext h3 .hand{display:block;font-size:24px;color:var(--berryink);letter-spacing:0;margin-top:4px;font-weight:700}
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ticks li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:start;font-size:15.5px}
+.ticks li::before{content:"\2661";color:var(--berryink);font-size:18px;line-height:1.3}
+.minis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px}
+.minis figure{margin:0;display:grid;gap:4px}
+.minis img{display:block;width:100%;height:auto;aspect-ratio:1400/973;object-fit:cover;border-radius:4px;border:1px solid var(--line)}
+.minis figcaption{font-size:12.5px;font-weight:700;color:var(--muted)}
+
+/* low battery band */
+.low{background:var(--night);color:var(--card);margin-top:52px}
+.low .inner{padding-block:48px;display:grid;gap:26px;align-items:center}
+@media (min-width:760px){.low .inner{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.low h2 .hand{display:block;color:var(--berry);font-size:.8em;letter-spacing:0;margin-top:6px}
+.low p{margin:14px 0 0;color:var(--blush);font-size:16.5px}
+.low img{display:block;width:100%;height:auto;border-radius:6px}
+.nope{display:grid;gap:8px;margin-top:20px}
+.nope p{margin:0;display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;font-weight:700;color:var(--card)}
+.nope span{color:var(--berry);font-weight:900;text-align:center}
+.quotes{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.quotes span{font-family:var(--hand);font-size:20px;line-height:1.1;padding:8px 14px;border-radius:999px;background:var(--ink);color:var(--berry)}
+
+/* everything inside */
+.gets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:620px){.gets{grid-template-columns:1fr}}
+.get{background:var(--card);border-radius:6px;padding:16px 16px 14px;display:grid;gap:4px;align-content:start}
+.get b{font-size:17px;font-weight:900;letter-spacing:-.02em}
+.get p{margin:0;font-size:14.5px;color:var(--muted);line-height:1.45}
+
+/* stickers + covers */
+.sc{display:grid;gap:14px}
+@media (min-width:760px){.sc{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}}
+.sc .ipad{padding:10px;border-radius:18px}
+.covers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-content:start}
+.covers img{display:block;width:100%;height:auto;aspect-ratio:2360/1640;object-fit:cover;border-radius:4px}
+.covers p{grid-column:1/-1;margin:2px 0 0;font-size:14.5px;color:var(--muted)}
+.counts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
+.counts div{background:var(--card);border-radius:6px;padding:12px;text-align:center;font-size:13px;font-weight:700;color:var(--muted)}
+.counts b{display:block;font-size:26px;font-weight:900;letter-spacing:-.03em;color:var(--ink);font-variant-numeric:tabular-nums}
+
+/* dated vs undated */
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:560px){.two{grid-template-columns:1fr}}
+.two div{background:var(--card);border-radius:6px;padding:18px;display:grid;gap:6px;align-content:start}
+.two b{font-size:22px;font-weight:900;letter-spacing:-.03em}
+.two p{margin:0;font-size:15px;color:var(--muted)}
+.two .hand{font-size:22px;color:var(--berryink);line-height:1}
+
+/* buy */
+.buy{background:var(--blush);margin-top:52px}
+.buy .inner{padding-block:44px 48px}
+.buygrid{display:grid;gap:22px;align-items:start}
+@media (min-width:760px){.buygrid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.gallery{display:grid;gap:8px}
+.main{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:6px;background:var(--card)}
 .thumbs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
 .thumbs button{padding:0;border:2px solid transparent;border-radius:4px;background:none;cursor:pointer;overflow:hidden}
 .thumbs button[aria-pressed="true"]{border-color:var(--berryink)}
 .thumbs img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
-.ptitle{display:flex;flex-direction:column;gap:2px}
-.ptitle h1{margin:0;font-size:38px;font-weight:900;letter-spacing:-.045em;line-height:.95}
-.ptitle .hand{font-size:24px;color:var(--berryink);line-height:1.05}
-fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;min-width:0}
+.picker{display:grid;gap:18px}
+fieldset{border:0;margin:0;padding:0;min-width:0}
 legend{padding:0;margin-bottom:10px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .styles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.years{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .opt{position:relative}
 .opt input{position:absolute;opacity:0;pointer-events:none}
-.opt label{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 6px 10px;border-radius:4px;background:var(--card);border:2px solid transparent;cursor:pointer;text-align:center;font-size:13px;font-weight:800;line-height:1.15}
-.opt label small{font-weight:500;color:var(--muted);font-size:11.5px}
+.opt label{display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;padding:12px 6px 10px;border-radius:6px;background:var(--card);border:2px solid transparent;cursor:pointer;text-align:center;font-size:13.5px;font-weight:800;line-height:1.15}
+.opt label small{font-weight:500;color:var(--muted);font-size:12px}
 .opt input:checked+label{border-color:var(--ink)}
 .opt input:focus-visible+label{outline:3px solid var(--berryink);outline-offset:2px}
-.sw{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(47,36,40,.2);overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
-.years{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.years .opt label{align-items:flex-start;text-align:left;padding:12px 14px;gap:2px;font-size:15px}
-.buybox{display:flex;flex-direction:column;gap:10px}
-.price{display:flex;align-items:baseline;gap:10px}
-.price b{font-size:30px;font-weight:900;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.price span{font-size:13px;color:var(--muted)}
-.buy{display:flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;border-radius:999px;background:var(--berryink);color:var(--card);font-weight:800;font-size:16px;text-decoration:none}
+.sw{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(47,36,40,.2);overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+.years .opt label{align-items:flex-start;text-align:left;padding:12px 14px;gap:2px;font-size:16px}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-size:40px;font-weight:900;letter-spacing:-.04em;font-variant-numeric:tabular-nums;line-height:1}
+.price span{font-size:14px;color:var(--muted);font-weight:700}
+.buybtn{width:100%;min-height:56px;font-size:16px}
 .facts{display:flex;flex-wrap:wrap;gap:6px}
-.facts span{font-size:12.5px;font-weight:700;padding:6px 10px;border-radius:999px;background:var(--blush)}
-details{background:var(--card);border-radius:4px;padding:14px 16px}
-summary{cursor:pointer;font-weight:800;font-size:16px}
-details ul{margin:10px 0 2px;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.4;color:#3E3035}
-h2{margin:0 0 12px;font-size:24px;font-weight:900;letter-spacing:-.04em;line-height:1}
-.how{display:flex;flex-direction:column;gap:10px;counter-reset:s}
-.how div{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.4}
-.how div::before{counter-increment:s;content:counter(s);flex:none;width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--card);display:grid;place-items:center;font-size:13px;font-weight:800}
-.fine{margin:0;font-size:12.5px;line-height:1.5;color:var(--muted)}
-footer{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;margin-top:16px}
+.facts span{font-size:12.5px;font-weight:700;padding:6px 10px;border-radius:999px;background:var(--card)}
+.buy .fine{margin:0;font-size:13px;color:var(--muted)}
+
+/* how + need */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps li{background:var(--card);border-radius:6px;padding:14px 16px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:start;counter-increment:s}
+.steps li::before{content:counter(s);width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--card);display:grid;place-items:center;font-size:13px;font-weight:800}
+.steps b{display:block}
+.need{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:620px){.need{grid-template-columns:1fr}}
+.need div{background:var(--card);border-radius:6px;padding:16px 14px;display:grid;justify-items:center;gap:8px;text-align:center;font-weight:700;line-height:1.3}
+.need div small{font-weight:500;color:var(--muted);font-size:13px}
+.need .ic{width:46px;height:46px;border-radius:50%;background:var(--berry);display:grid;place-items:center}
+.need svg{width:24px;height:24px;fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* faq */
+details{background:var(--card);border-radius:6px;padding:14px 16px;margin-bottom:8px}
+summary{cursor:pointer;font-weight:800;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:" +";color:var(--berryink)}
+details[open] summary::after{content:" \2212"}
+details p{margin:8px 0 0;color:#3E3035}
+
+.endbuy{display:grid;justify-items:center;gap:8px;text-align:center;margin-top:26px}
+.endbuy .fine{margin:0;font-size:13px;color:var(--muted)}
+footer{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding-block:44px 120px}
 footer .ig{font-size:15px;font-weight:800;text-decoration:none}
 footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
-@media (prefers-reduced-motion:no-preference){.buy{transition:transform .15s}.buy:active{transform:scale(.97)}}
+
+/* sticky bar (phones) */
+.stickybuy{position:fixed;left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:max(12px,env(safe-area-inset-bottom,0px));z-index:20;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--ink);color:var(--card);border-radius:999px;padding:8px 8px 8px 20px;box-shadow:0 10px 24px rgba(28,21,23,.3);text-decoration:none;transform:translateY(160%);transition:transform .25s ease}
+.stickybuy.show{transform:none}
+.stickybuy span{font-weight:800;font-size:14.5px}
+.stickybuy b{background:var(--berry);color:var(--ink);border-radius:999px;padding:11px 16px;font-size:14px;white-space:nowrap}
+@media (min-width:760px){.stickybuy{display:none}}
+@media (prefers-reduced-motion:reduce){.stickybuy{transition:none}}
+@media (prefers-reduced-motion:no-preference){.pill{transition:transform .15s}.pill:active{transform:scale(.97)}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header><a href="/"><span class="logo">unspoken</span><span class="logo-sub hand">motherhood co</span></a></header>
+
+<div class="inner top">
+  <a class="logo-link" href="/"><span class="logo">unspoken</span><span class="logo-sub hand">motherhood co</span></a>
   <nav class="nav" aria-label="Site"><a href="/#free">free stuff</a><a href="/planners/" aria-current="page">planners</a></nav>
-
-  <a class="back" href="/planners/">← all planners</a>
-  <div class="gallery">
-    <img class="main" id="mainimg" src="/planners/img/garden-2027-hero.jpg" alt="ADHD Mom Planner, Garden Lace 2027" width="720" height="720">
-    <div class="thumbs" id="thumbs"></div>
-  </div>
-  <div class="ptitle"><h1>the ADHD mom planner</h1><span class="hand">for the mom brain that's holding everything</span></div>
-
-  <fieldset>
-    <legend>1. pick your style</legend>
-    <div class="styles">
-      <div class="opt"><input type="radio" name="style" id="st-berry" value="berry"><label for="st-berry"><span class="sw"><i style="background:#8A5A66"></i><i style="background:#D8B6B8"></i></span>Berry<small>the original</small></label></div>
-      <div class="opt"><input type="radio" name="style" id="st-mono" value="mono"><label for="st-mono"><span class="sw"><i style="background:#141414"></i><i style="background:#fff"></i></span>Monochrome<small>black + white</small></label></div>
-      <div class="opt"><input type="radio" name="style" id="st-garden" value="garden" checked><label for="st-garden"><span class="sw"><i style="background:#1D3A1F"></i><i style="background:#B5C8A3"></i></span>Garden Lace<small>forest + sage</small></label></div>
-    </div>
-  </fieldset>
-
-  <fieldset>
-    <legend>2. dated or undated</legend>
-    <div class="years">
-      <div class="opt"><input type="radio" name="year" id="yr-2027" value="2027" checked><label for="yr-2027">2027<small>dates filled in, Jan to Dec</small></label></div>
-      <div class="opt"><input type="radio" name="year" id="yr-undated" value="undated"><label for="yr-undated">undated<small>start any day, skip weeks</small></label></div>
-    </div>
-  </fieldset>
-
-  <div class="buybox">
-    <div class="price"><b>$9.99</b><span id="picked">Garden Lace · 2027</span></div>
-    <a class="buy" id="buy" href="https://buy.stripe.com/00w7sN50v96QdxSaCd6Na06">get the Garden Lace planner</a>
-    <div class="facts"><span>iPad + Android</span><span>Monday or Sunday start</span><span>GoodNotes + Notability</span><span id="stk">343 stickers</span><span>3 covers</span></div>
-  </div>
-
-  <details open>
-    <summary>what's inside</summary>
-    <ul>
-      <li id="pages">607 linked pages. tap any tab or date and you're there</li>
-      <li>weekly spreads with kid stuff, dinners and a weekly reset</li>
-      <li>daily pages with a loose morning, midday, afternoon, evening (no hourly boxes)</li>
-      <li>mom HQ: kid info, meal plans, school stuff, birthdays, things they said</li>
-      <li>me + life: self care, habits, trips, packing, reading</li>
-      <li>hard day pages: bare minimum day, when I'm touched out, 10 minute wins</li>
-    </ul>
-  </details>
-
-  <div>
-    <h2>how you get it</h2>
-    <div class="how">
-      <div>tap the button and pay on the secure Stripe checkout page</div>
-      <div>your download page opens right away with all 5 files</div>
-      <div>you also get an email with your download link, so you can grab it later on your iPad</div>
-    </div>
-  </div>
-  <p class="fine">this is a digital download, nothing is shipped. you need a tablet and a note app like GoodNotes or Notability (not included). for personal use only. something not working? reply to your download email and I'll help.</p>
-
-  <footer>
-    <a class="ig" href="https://www.instagram.com/unspokenmotherhoodco/">@unspokenmotherhoodco</a>
-    <div class="mark">unspoken</div>
-  </footer>
 </div>
+<div class="inner lookbar">
+  <p id="looklab">pick a style to see it</p>
+  <div class="looks" role="radiogroup" aria-labelledby="looklab">
+    <div class="opt"><input type="radio" name="look" id="lk-berry" value="berry"><label for="lk-berry"><img src="/planners/img/berry-p-cov0.jpg" alt="" width="900" height="625">Berry</label></div>
+    <div class="opt"><input type="radio" name="look" id="lk-mono" value="mono"><label for="lk-mono"><img src="/planners/img/mono-p-cov1.jpg" alt="" width="900" height="625">Monochrome</label></div>
+    <div class="opt"><input type="radio" name="look" id="lk-garden" value="garden" checked><label for="lk-garden"><img src="/planners/img/garden-p-cov0.jpg" alt="" width="900" height="625">Garden Lace</label></div>
+  </div>
+</div>
+
+<header class="hero"><div class="inner">
+  <div>
+    <span class="kicker">digital planner · iPad + Android</span>
+    <h1>the ADHD mom planner <span class="hand">for the mom brain that's holding everything</span></h1>
+    <p>kid stuff, dinners, appointments, the hard days and a little room for you. tap a tab and you're there. no hourly boxes.</p>
+    <div class="herobtns"><a class="pill berry" href="#buy">pick your style ↓</a></div>
+    <p class="fine">$9.99 · instant download · 3 styles · 2027 or undated</p>
+  </div>
+  <div class="vid">
+    <video id="herovid" src="/planners/img/garden.mp4" poster="/planners/img/garden-poster.jpg" autoplay muted loop playsinline aria-label="A short video flipping through the planner pages"></video>
+    <div class="sticker" aria-hidden="true"><span><b>$9.99</b><span>instant download</span></span></div>
+  </div>
+</div></header>
+<div class="ticker" aria-hidden="true"><div class="track">
+  <span>no hourly boxes</span><span>tap a tab, you're there</span><span>iPad + Android</span><span>2027 or undated</span><span>stickers included</span><span>pay once</span>
+  <span>no hourly boxes</span><span>tap a tab, you're there</span><span>iPad + Android</span><span>2027 or undated</span><span>stickers included</span><span>pay once</span>
+</div></div>
+
+<section id="look"><div class="inner">
+  <div class="h2row"><h2>the look</h2><span class="hand" id="bname">Garden Lace</span></div>
+  <p class="sub" id="bvibe"></p>
+  <div class="board">
+    <div>
+      <img class="cov" id="bcov" src="/planners/img/garden-p-cov0.jpg" alt="" width="900" height="625">
+      <div class="morecov"><p class="bl">more covers</p><div><img id="bmc0" src="/planners/img/garden-p-cov1.jpg" alt="" width="900" height="625" loading="lazy"><img id="bmc1" src="/planners/img/garden-p-cov2.jpg" alt="" width="900" height="625" loading="lazy"></div></div>
+    </div>
+    <div>
+      <p class="bl">colors</p>
+      <div class="swatches" id="bcolors"></div>
+      <p class="bl" style="margin-top:16px">fonts on the pages</p>
+      <div class="fonts" id="bfonts"></div>
+    </div>
+    <div class="stickers" id="bstickers"></div>
+    <p class="note" id="bnote"></p>
+  </div>
+</div></section>
+
+<section><div class="inner">
+  <div class="ifever">
+    <p>if you've ever found the field trip form in the backpack the morning it was due…</p>
+    <p>if your brain has 40 tabs open and not one of them is for you…</p>
+    <p>if you bought a cute planner in January and quit by February because every empty hourly box felt like falling behind…</p>
+    <p class="end">this planner was made for that brain.</p>
+  </div>
+</div></section>
+
+<section id="tour"><div class="inner">
+  <div class="h2row"><h2>take a look inside</h2><span class="hand">filled in like a real week</span></div>
+  <p class="sub">these are real pages from the planner, shown in <span class="sname">Garden Lace</span>. tap a page to see it.</p>
+  <div class="tabs" role="tablist" aria-label="Planner pages">
+    <button role="tab" id="t-home" aria-controls="tourpanel" aria-selected="true" data-page="home">home</button>
+    <button role="tab" id="t-week" aria-controls="tourpanel" aria-selected="false" data-page="week">the week</button>
+    <button role="tab" id="t-day" aria-controls="tourpanel" aria-selected="false" data-page="day">the day</button>
+    <button role="tab" id="t-month" aria-controls="tourpanel" aria-selected="false" data-page="month">the month</button>
+    <button role="tab" id="t-bare" aria-controls="tourpanel" aria-selected="false" data-page="bare">bare minimum day</button>
+    <button role="tab" id="t-momhq" aria-controls="tourpanel" aria-selected="false" data-page="momhq">mom HQ</button>
+    <button role="tab" id="t-me" aria-controls="tourpanel" aria-selected="false" data-page="me">me + life</button>
+    <button role="tab" id="t-year" aria-controls="tourpanel" aria-selected="false" data-page="year">year at a glance</button>
+  </div>
+  <div id="tourpanel" role="tabpanel" aria-labelledby="t-home">
+    <div class="ipad"><img id="tourimg" src="/planners/img/garden-p-home.jpg" alt="The planner home page with buttons for every month, goal and list" width="1400" height="973"></div>
+    <div class="tourtext">
+      <h3 id="tourtitle">home<span class="hand">tap anything to jump there</span></h3>
+      <div>
+        <ul class="ticks" id="tourlist">
+          <li>every month, goal page and list is one tap from home</li>
+          <li>tabs across the top and months down the side, on every single page</li>
+          <li>no scrolling through 600 pages to find today</li>
+        </ul>
+        <div class="minis" id="tourminis" hidden></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<div class="low"><div class="inner">
+  <div>
+    <h2>made for the low-battery days <span class="hand">nothing to catch up on</span></h2>
+    <p>some weeks you plan everything. some weeks you just get everyone fed. this planner works for both.</p>
+    <div class="nope">
+      <p><span aria-hidden="true">✕</span> no hourly boxes to fall behind on</p>
+      <p><span aria-hidden="true">✕</span> no wasted pages in the undated version. skip a week and pick up where you are</p>
+      <p><span aria-hidden="true">✓</span> a bare minimum day page where "everyone ate something" counts as a full day</p>
+      <p><span aria-hidden="true">✓</span> "when I'm touched out" and "10 minute wins" pages for the hard stretches</p>
+    </div>
+    <div class="quotes" aria-label="Quotes printed on the planner pages">
+      <span>you can be tired and still be a really good mom.</span>
+      <span>you did more today than anyone saw.</span>
+    </div>
+  </div>
+  <img id="lowimg" src="/planners/img/garden-lowbattery.jpg" alt="The bare minimum day page on an iPad, with when I'm touched out, 10 minute wins and brain dump" width="1000" height="1000" loading="lazy">
+</div></div>
+
+<section><div class="inner">
+  <div class="h2row"><h2>everything inside</h2><span class="hand">all linked, all in one file</span></div>
+  <div class="gets">
+    <div class="get"><b>home + year at a glance</b><p>a home page that links to everything, a cover, a how-to page and the whole year on one page.</p></div>
+    <div class="get"><b>goals</b><p>a look back at last year, word of the year, a life areas check-in, yearly goals, goal breakdowns and quarterly plans.</p></div>
+    <div class="get"><b>every month</b><p>a calendar, a monthly check-in, and a habit and mood tracker.</p></div>
+    <div class="get"><b>a spread for every week</b><p>top 3, appointments and kid stuff, dinners, school and don't forget, plus a weekly reset checklist.</p></div>
+    <div class="get"><b>a page for every day</b><p>top 3 must-dos, if I only do one thing, a loose morning to evening rhythm, kids today, dinner tonight, brain dump, done list, energy, mood, water, meds and sleep.</p></div>
+    <div class="get"><b>mom HQ</b><p>kid info, family week, weekly home rhythm, 4 meal plans with grocery lists, easy dinners, errand runs, school stuff, kid health log, birthdays and gifts, things they said, notes to self.</p></div>
+    <div class="get"><b>me + life</b><p>gratitude, 30 days of self care, move my body, water and sleep, habit wheel, weekend plan, trip planner, packing list, grocery list, reading log.</p></div>
+    <div class="get"><b>ADHD toolkit</b><p>dopamine menu, routines (morning, kids' bedtime, my evening), things I keep forgetting, bare minimum day, when I'm touched out, 10 minute wins, 6 brain dumps and 6 task breakdowns.</p></div>
+    <div class="get"><b>money</b><p>12 monthly budgets, a savings goal, and bills and subscriptions.</p></div>
+    <div class="get"><b>notes</b><p>10 lined and 10 dot grid pages for everything else.</p></div>
+    <div class="get"><b>36 mom quotes</b><p>little reminders printed on the daily and weekly pages.</p></div>
+    <div class="get"><b>sticker pages + covers</b><p>6 sticker pages inside the planner, the same stickers as PNGs, and covers to pick from (3, or 6 in Berry).</p></div>
+  </div>
+</div></section>
+
+<section><div class="inner">
+  <div class="h2row"><h2>stickers + covers</h2><span class="hand">lasso one, paste it anywhere</span></div>
+  <div class="sc">
+    <div class="ipad"><img id="stkimg" src="/planners/img/garden-p-stickers.jpg" alt="A sticker page with labels like school, pickup, dentist and little phrases like we survived and mom win" width="1400" height="973" loading="lazy"></div>
+    <div class="covers">
+      <img class="covimg" src="/planners/img/garden-p-cov0.jpg" alt="Cover choice 1" width="1400" height="973" loading="lazy">
+      <img class="covimg" src="/planners/img/garden-p-cov1.jpg" alt="Cover choice 2" width="1400" height="973" loading="lazy">
+      <img class="covimg" src="/planners/img/garden-p-cov2.jpg" alt="Cover choice 3" width="1400" height="973" loading="lazy">
+      <p>the stickers live on sticker pages inside the planner, so you can lasso and paste them right in. you also get them as PNG files, plus <span class="ncov">3</span> covers for iPad and Android.</p>
+    </div>
+  </div>
+  <div class="counts">
+    <div><b>960</b>stickers in Berry</div>
+    <div><b>334</b>stickers in Monochrome</div>
+    <div><b>343</b>stickers in Garden Lace</div>
+  </div>
+</div></section>
+
+<section><div class="inner">
+  <div class="h2row"><h2>2027 or undated?</h2></div>
+  <div class="two">
+    <div><span class="hand">dated</span><b>2027</b><p>every date is already filled in, January 1 to December 31. open it and today is right there.</p></div>
+    <div><span class="hand">undated</span><b>start any day</b><p>you write the dates in. start in March, skip a rough week, and nothing goes to waste.</p></div>
+  </div>
+</div></section>
+
+<section id="buy" class="buy"><div class="inner">
+  <div class="h2row"><h2>pick your style</h2><span class="hand">same planner, your look</span></div>
+  <div class="buygrid">
+    <div class="gallery">
+      <img class="main" id="mainimg" src="/planners/img/garden-2027-hero.jpg" alt="ADHD Mom Planner, Garden Lace 2027" width="720" height="720">
+      <div class="thumbs" id="thumbs"></div>
+    </div>
+    <div class="picker">
+      <fieldset>
+        <legend>1. style</legend>
+        <div class="styles">
+          <div class="opt"><input type="radio" name="style" id="st-berry" value="berry"><label for="st-berry"><span class="sw"><i style="background:#8A5A66"></i><i style="background:#D8B6B8"></i></span>Berry<small>the original</small></label></div>
+          <div class="opt"><input type="radio" name="style" id="st-mono" value="mono"><label for="st-mono"><span class="sw"><i style="background:#141414"></i><i style="background:#fff"></i></span>Monochrome<small>black + white</small></label></div>
+          <div class="opt"><input type="radio" name="style" id="st-garden" value="garden" checked><label for="st-garden"><span class="sw"><i style="background:#1D3A1F"></i><i style="background:#B5C8A3"></i></span>Garden Lace<small>forest + sage</small></label></div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>2. dated or undated</legend>
+        <div class="years">
+          <div class="opt"><input type="radio" name="year" id="yr-2027" value="2027" checked><label for="yr-2027">2027<small>dates filled in</small></label></div>
+          <div class="opt"><input type="radio" name="year" id="yr-undated" value="undated"><label for="yr-undated">undated<small>start any day</small></label></div>
+        </div>
+      </fieldset>
+      <div class="price"><b>$9.99</b><span id="picked">Garden Lace · 2027</span></div>
+      <a class="pill solid buybtn" id="buybtn" href="https://buy.stripe.com/00w7sN50v96QdxSaCd6Na06">get the Garden Lace planner</a>
+      <div class="facts"><span id="pages">607 linked pages</span><span id="stk">343 stickers</span><span>iPad + Android</span><span>Monday or Sunday start</span><span><span class="ncov">3</span> covers</span></div>
+      <p class="fine">secure checkout by Stripe. your download page opens the second you pay.</p>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="inner">
+  <div class="h2row"><h2>how you get it</h2></div>
+  <ol class="steps">
+    <li><span><b>pay on the secure checkout.</b> card, Apple Pay and more.</span></li>
+    <li><span><b>your download page opens right away.</b> 4 planner files (iPad and Android, Monday or Sunday start) plus your stickers and covers.</span></li>
+    <li><span><b>check your email.</b> you get the same download link, so you can grab it later on your iPad.</span></li>
+    <li><span><b>open it in your note app.</b> GoodNotes, Notability or any app that opens PDFs with links. tap the tabs and start writing.</span></li>
+  </ol>
+</div></section>
+
+<section><div class="inner">
+  <div class="h2row"><h2>what you need</h2></div>
+  <div class="need">
+    <div><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><path d="M10.5 16.5h3"/></svg></span>a tablet<small>iPad or Android</small></div>
+    <div><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h10l4 4v13H5z"/><path d="M14.5 3.5v4.5h4.5"/><path d="M8.5 12.5h7M8.5 16h5"/></svg></span>a note app<small>like GoodNotes or Notability (not included)</small></div>
+    <div><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.5-5.5L16 4l4 4L9.5 18.5z"/><path d="M13.5 6.5l4 4"/></svg></span>a stylus, if you like<small>you can type in it too</small></div>
+  </div>
+</div></section>
+
+<section><div class="inner">
+  <div class="h2row"><h2>still deciding?</h2></div>
+  <details><summary>is it a subscription?</summary><p>no. you pay $9.99 once and the files are yours.</p></details>
+  <details><summary>which file do I use?</summary><p>you get all 4: iPad and Android, each with a Monday start or a Sunday start. pick the one that fits your tablet and your week. you only need one.</p></details>
+  <details><summary>do I need an Apple Pencil?</summary><p>no. a stylus makes handwriting easier, but you can type in text boxes in GoodNotes and Notability too.</p></details>
+  <details><summary>can I use it on my phone?</summary><p>it's made for a tablet turned sideways. it will open on a phone, but the pages are small, so a tablet is the way to go.</p></details>
+  <details><summary>do I have to have ADHD?</summary><p>no. it's made for the busy mom brain, diagnosed, wondering or just stretched thin. it's a planner, not a medical tool.</p></details>
+  <details><summary>what's different between the styles?</summary><p>only the look. Berry, Monochrome and Garden Lace have the same pages inside. the sticker count is different for each style, and Berry comes with 6 covers instead of 3.</p></details>
+  <details><summary>can I get a refund?</summary><p>because it's a digital download you get right away, sales are final. if anything isn't working, reply to your download email and I'll help.</p></details>
+  <details><summary>can I share it?</summary><p>it's for your personal use, so please don't share or resell the files.</p></details>
+  <div class="endbuy"><a class="pill solid" href="#buy">pick your style</a><p class="fine">$9.99 · instant download</p></div>
+</div></section>
+
+<footer class="inner">
+  <a class="ig" href="https://www.instagram.com/unspokenmotherhoodco/">@unspokenmotherhoodco</a>
+  <div class="mark">unspoken</div>
+</footer>
+
+<a class="stickybuy" id="stickybuy" href="#buy" aria-label="Pick your style, 9.99 dollars"><span>ADHD mom planner · $9.99</span><b>pick a style</b></a>
+
 <script>
 (function(){
+  /* tour */
+  var T={
+    home:{img:"home",alt:"The planner home page with buttons for every month, goal and list",t:"home",h:"tap anything to jump there",
+      li:["every month, goal page and list is one tap from home","tabs across the top and months down the side, on every single page","no scrolling through 600 pages to find today"]},
+    week:{img:"weekly",alt:"A weekly spread filled in with appointments, dinners and kid stuff",t:"the week",h:"the whole week on one spread",
+      li:["top 3 this week, so the big stuff doesn't get lost","appointments and kid stuff, dinners, school and don't forget","a weekly reset checklist one tap away"]},
+    day:{img:"daily",alt:"A daily page filled in with energy, mood, top 3 and a loose morning to evening rhythm",t:"the day",h:"a loose rhythm, not a schedule",
+      li:["morning, midday, afternoon and evening. no hourly boxes","top 3 must-dos and \"if I only do one thing\"","kids today, dinner tonight, brain dump and a done list, because it all counts","energy, mood, water, meds and sleep in a few taps"]},
+    month:{img:"month",alt:"A monthly calendar with school days, birthdays and soccer written in",t:"the month",h:"the big picture",
+      li:["a calendar for every month","a monthly check-in","a habit and mood tracker and a budget page, linked right from the calendar"]},
+    bare:{img:"bare",alt:"The bare minimum day page with a checklist that counts as a full day",t:"bare minimum day",h:"on the low days, this is enough",
+      li:["a checklist where everyone ate something and bedtime happened counts as a full day","easy food you have on hand and easy stuff for the kids to do","who can help today, written down before you need it"]},
+    momhq:{img:"meal",alt:"A meal plan page with dinners for the week and a grocery list",t:"mom HQ",h:"everything people ask you for",
+      li:["meal plans with grocery lists by section","kid info: doctors, sizes, allergies, best friends","school stuff, family week, birthdays, things they said"],
+      minis:[["kid","kid info"],["family","family week"],["school","school stuff"]]},
+    me:{img:"mehub",alt:"The me + life page with gratitude, self care, habits, trips and more",t:"me + life",h:"room for you, not just everyone else",
+      li:["gratitude, 30 days of self care and move my body","water and sleep, a habit wheel and a weekend plan","trip planner, packing list, grocery list and a reading log"],
+      minis:[["selfcare","30 days of self care"],["trip","trip planner"],["meal","grocery list"]]},
+    year:{img:"year",alt:"The whole year on one page; tap any month or date",t:"year at a glance",h:"tap a month or any date",
+      li:["the whole year on one page","every date links to its daily page (in the 2027 version)","goals, word of the year and quarterly plans live right next to it"]}
+  };
+  var curPage="home";
+  function look(){var e=document.querySelector('input[name="look"]:checked');return e?e.value:"garden"}
+  var tabs=[].slice.call(document.querySelectorAll('[role="tab"]'));
+  function showPage(k,focus){
+    var p=T[k];if(!p)return;curPage=k;
+    tabs.forEach(function(b){var on=b.dataset.page===k;b.setAttribute("aria-selected",on?"true":"false");b.tabIndex=on?0:-1;if(on&&focus)b.focus();});
+    document.getElementById("tourpanel").setAttribute("aria-labelledby","t-"+k);
+    var im=document.getElementById("tourimg");im.src="/planners/img/"+look()+"-p-"+p.img+".jpg";im.alt=p.alt;
+    var h=document.getElementById("tourtitle");h.textContent=p.t;var s=document.createElement("span");s.className="hand";s.textContent=p.h;h.appendChild(s);
+    var ul=document.getElementById("tourlist");ul.textContent="";p.li.forEach(function(x){var li=document.createElement("li");li.textContent=x;ul.appendChild(li);});
+    var mi=document.getElementById("tourminis");mi.textContent="";mi.hidden=!p.minis;
+    (p.minis||[]).forEach(function(m){var f=document.createElement("figure");var i=document.createElement("img");i.src="/planners/img/"+look()+"-p-"+m[0]+".jpg";i.alt="";i.loading="lazy";var c=document.createElement("figcaption");c.textContent=m[1];f.appendChild(i);f.appendChild(c);mi.appendChild(f);});
+  }
+  tabs.forEach(function(b,i){
+    b.addEventListener("click",function(){showPage(b.dataset.page)});
+    b.addEventListener("keydown",function(e){var d=e.key==="ArrowRight"?1:e.key==="ArrowLeft"?-1:0;if(!d)return;e.preventDefault();var n=tabs[(i+d+tabs.length)%tabs.length];showPage(n.dataset.page,true);});
+  });
+  tabs.forEach(function(b){b.tabIndex=b.getAttribute("aria-selected")==="true"?0:-1});
+
+  /* buy box */
   var S={berry:{name:"Berry",st:960,pages:{"2027":606,undated:603}},
          mono:{name:"Monochrome",st:334,pages:{"2027":607,undated:604}},
          garden:{name:"Garden Lace",st:343,pages:{"2027":607,undated:604}}};
-  var LINKS={"berry-2027":"https://buy.stripe.com/14A7sNakP3MwbpKbGh6Na02",
-    "berry-undated":"https://buy.stripe.com/28E8wRakP5UE9hCfWx6Na03",
-    "mono-2027":"https://buy.stripe.com/9B6cN71Oj4QAdxS9y96Na04",
-    "mono-undated":"https://buy.stripe.com/4gMfZjfF9erafG06lX6Na05",
-    "garden-2027":"https://buy.stripe.com/00w7sN50v96QdxSaCd6Na06",
-    "garden-undated":"https://buy.stripe.com/3cIcN78cH3Mw3XidOp6Na07"};
+  var LINKS={"berry-2027":"https://buy.stripe.com/14A7sNakP3MwbpKbGh6Na02","berry-undated":"https://buy.stripe.com/28E8wRakP5UE9hCfWx6Na03",
+    "mono-2027":"https://buy.stripe.com/9B6cN71Oj4QAdxS9y96Na04","mono-undated":"https://buy.stripe.com/4gMfZjfF9erafG06lX6Na05",
+    "garden-2027":"https://buy.stripe.com/00w7sN50v96QdxSaCd6Na06","garden-undated":"https://buy.stripe.com/3cIcN78cH3Mw3XidOp6Na07"};
   var shots=[["hero","the planner"],["weekly","weekly"],["daily","daily"],["stickers","stickers"],["covers","covers"]];
   var cur="hero";
   function sel(n){var e=document.querySelector('input[name="'+n+'"]:checked');return e?e.value:null}
   function src(k){return "/planners/img/"+sel("style")+"-"+sel("year")+"-"+k+".jpg"}
+  /* brand board per style (colors + fonts read from each planner's files) */
+  var B={
+    berry:{vibe:"soft berry and rose with sage tabs. warm, cozy and a little sweet.",cov:"cov0",
+      colors:[["berry","#8A5A66"],["rose","#D8B6B8"],["sage","#BCC5BE"],["vanilla","#F2EEE9"],["cocoa","#2F2428"]],
+      fonts:[["week 2","Caveat","handwritten headings","font-family:Caveat;font-weight:700;color:#8A5A66"],
+             ["TOP 3 THIS WEEK","Inter Tight","labels + buttons","font-family:'Inter Tight';font-weight:800;font-size:18px;letter-spacing:.06em"],
+             ["you did more today than anyone saw.","Playfair Display italic","the little quotes","font-family:'Playfair Display';font-style:italic;font-size:21px"]],
+      note:"stickers come in 3 colorways (berry, sand and sky), plus 6 covers."},
+    mono:{vibe:"clean black and white with striped tape. simple, bold, no fuss.",cov:"cov1",
+      colors:[["black","#141414"],["white","#FFFFFF"],["fog","#E1E0DB"],["stone","#ECEBE7"],["graphite","#5C5C5A"]],
+      fonts:[["WEEK 2","Oswald","bold headings","font-family:Oswald;font-weight:500;letter-spacing:.02em"],
+             ["Top 3 this week","League Spartan","labels + text","font-family:'League Spartan';font-weight:600;font-size:21px"],
+             ["you did more today than anyone saw.","Caveat","handwritten touches","font-family:Caveat;font-weight:700"]],
+      note:"334 stickers, including striped tape and bows, plus 3 covers."},
+    garden:{vibe:"forest green and sage with lace, gingham, bows and butterflies. pretty and calm.",cov:"cov0",
+      colors:[["forest","#1D3A1F"],["fern","#3F6A42"],["sage","#B5C8A3"],["mint","#DCE6D1"],["cream","#F8F6EF"]],
+      fonts:[["Week 2","Bodoni Moda","elegant headings","font-family:'Bodoni Moda';font-weight:600;color:#1D3A1F"],
+             ["on the low days, this is enough","Pinyon Script","script accents","font-family:'Pinyon Script';font-size:27px;color:#3F6A42"],
+             ["TOP 3 THIS WEEK","Inter Tight","labels + buttons","font-family:'Inter Tight';font-weight:800;font-size:18px;letter-spacing:.06em"]],
+      note:"343 stickers, including lace, gingham, bows and butterflies, plus 3 covers."}};
+  var STK=["ph1","ph2","x0","lab1","ic1","x1","ph3","lab2"];
+  function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x)e.textContent=x;return e}
+  function board(s){
+    var b=B[s];document.getElementById("bname").textContent=S[s].name;document.getElementById("bvibe").textContent=b.vibe;
+    var cv=document.getElementById("bcov");cv.src="/planners/img/"+s+"-p-"+b.cov+".jpg";cv.alt=S[s].name+" cover";
+    ["cov0","cov1","cov2"].filter(function(k){return k!==b.cov}).forEach(function(k,j){var m=document.getElementById("bmc"+j);m.src="/planners/img/"+s+"-p-"+k+".jpg";m.alt=S[s].name+" cover"});
+    var c=document.getElementById("bcolors");c.textContent="";
+    b.colors.forEach(function(x){var d=el("div");var i=el("i");i.style.background=x[1];d.appendChild(i);d.appendChild(document.createTextNode(x[0]));c.appendChild(d)});
+    var f=document.getElementById("bfonts");f.textContent="";
+    b.fonts.forEach(function(x){var d=el("div");var sp=el("span","smp",x[0]);sp.setAttribute("style",x[3]);d.appendChild(sp);d.appendChild(el("small",null,x[1]+" · "+x[2]));f.appendChild(d)});
+    var st=document.getElementById("bstickers");st.textContent="";
+    STK.forEach(function(k,j){var i=el("img",j%3===1?"tall":"");i.src="/planners/img/"+s+"-st-"+k+".png";i.alt="";i.loading="lazy";i.style.transform="rotate("+((j%2?1:-1)*(2+j%3*2))+"deg)";st.appendChild(i)});
+    document.getElementById("bnote").textContent=b.note;
+  }
+  function restyle(s){
+    document.body.dataset.style=s;
+    document.querySelectorAll(".sname").forEach(function(x){x.textContent=S[s].name});
+    document.querySelectorAll(".ncov").forEach(function(x){x.textContent=s==="berry"?"6":"3"});
+    var v=document.getElementById("herovid");if(v.getAttribute("src")!=="/planners/img/"+s+".mp4"){v.poster="/planners/img/"+s+"-poster.jpg";v.src="/planners/img/"+s+".mp4";var pl=v.play();if(pl&&pl.catch)pl.catch(function(){})}
+    document.getElementById("lowimg").src="/planners/img/"+s+"-lowbattery.jpg";
+    document.getElementById("stkimg").src="/planners/img/"+s+"-p-stickers.jpg";
+    document.querySelectorAll(".covimg").forEach(function(x,j){x.src="/planners/img/"+s+"-p-cov"+j+".jpg"});
+    showPage(curPage);board(s);
+  }
   function render(){
     var s=sel("style"),y=sel("year"),nm=S[s].name,yl=y==="2027"?"2027":"undated";
     var m=document.getElementById("mainimg");m.src=src(cur);m.alt="ADHD Mom Planner, "+nm+" "+yl+": "+cur;
@@ -154,17 +559,25 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
     shots.forEach(function(p){var b=document.createElement("button");b.type="button";b.setAttribute("aria-pressed",p[0]===cur?"true":"false");b.setAttribute("aria-label","Show "+p[1]);
       var i=document.createElement("img");i.src=src(p[0]);i.alt="";i.loading="lazy";b.appendChild(i);b.onclick=function(){cur=p[0];render()};th.appendChild(b)});
     document.getElementById("picked").textContent=nm+" · "+yl;
-    var buy=document.getElementById("buy");buy.href=LINKS[s+"-"+y];buy.textContent="get the "+nm+" planner";
+    var buy=document.getElementById("buybtn");buy.href=LINKS[s+"-"+y];buy.textContent="get the "+nm+" planner · $9.99";
     document.getElementById("stk").textContent=S[s].st+" stickers";
-    document.getElementById("pages").textContent=S[s].pages[y]+" linked pages. tap any tab or date and you're there";
+    document.getElementById("pages").textContent=S[s].pages[y]+" linked pages";
+    if(look()!==s)document.getElementById("lk-"+s).checked=true;
+    if(document.body.dataset.style!==s)restyle(s);
+    if(history.replaceState)history.replaceState(null,"","#"+s+"-"+y);
   }
-  // links like /planners/adhd-mom/#mono-undated open on that style
+  document.querySelectorAll('input[name="look"]').forEach(function(i){i.addEventListener("change",function(){document.getElementById("st-"+i.value).checked=true;render()})});
   var h=(location.hash||"").slice(1).split("-");
-  if(S[h[0]]){document.getElementById("st-"+h[0]).checked=true;}
-  if(h[1]==="2027"||h[1]==="undated"){document.getElementById("yr-"+h[1]).checked=true;}
-  document.querySelectorAll('input[name="style"],input[name="year"]').forEach(function(i){i.addEventListener("change",function(){
-    render();try{history.replaceState(null,"","#"+sel("style")+"-"+sel("year"))}catch(e){}})});
+  if(S[h[0]])document.getElementById("st-"+h[0]).checked=true;
+  if(h[1]==="2027"||h[1]==="undated")document.getElementById("yr-"+h[1]).checked=true;
+  document.querySelectorAll('input[name="style"],input[name="year"]').forEach(function(i){i.addEventListener("change",render)});
   render();
+
+  /* sticky bar: shows after the hero, hides at the buy box */
+  var bar=document.getElementById("stickybuy"),hero=document.querySelector(".hero"),buyS=document.getElementById("buy");
+  if(bar&&hero&&buyS&&"IntersectionObserver" in window){var past=false,at=false;function set(){bar.classList.toggle("show",past&&!at)}
+    new IntersectionObserver(function(e){past=!e[0].isIntersecting;set()}).observe(hero);
+    new IntersectionObserver(function(e){at=e[0].isIntersecting;set()}).observe(buyS);}
 })();
 </script>
 </body>
