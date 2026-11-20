@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>the ADHD mom planner · unspoken motherhood co</title>
-<meta name="description" content="the ADHD mom planner: a digital planner for the mom brain that's holding everything. 4 styles, 2027 or undated, for iPad and Android. $9.99 instant download.">
+<meta name="description" content="the ADHD mom planner: a digital planner for the mom brain that's holding everything. 5 styles, 2027 or undated, for iPad and Android. $9.99 instant download.">
 <meta property="og:title" content="the ADHD mom planner · unspoken motherhood co">
-<meta property="og:description" content="for the mom brain that's holding everything. 4 styles, 2027 or undated. $9.99 instant download.">
+<meta property="og:description" content="for the mom brain that's holding everything. 5 styles, 2027 or undated. $9.99 instant download.">
 <meta property="og:image" content="https://unspokenmotherhoodco.com/planners/img/garden-2027-hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800;900&family=Caveat:wght@600;700&family=Oswald:wght@500&family=League+Spartan:wght@400;600&family=Bodoni+Moda:wght@600&family=Pinyon+Script&family=Playfair+Display:ital@1&family=Cinzel:wght@500&family=Jost:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800;900&family=Caveat:wght@600;700&family=Oswald:wght@500&family=League+Spartan:wght@400;600&family=Bodoni+Moda:opsz,wght@6..96,400..900&family=Pinyon+Script&family=Playfair+Display:ital@1&family=Cinzel:wght@500&family=Jost:wght@400;500&family=Allison&family=Inter:wght@500;600&display=swap">
 <style>
 /* layout: the unspoken site's own look (same tokens, Inter Tight + Caveat), one long phone-first column.
    dark hero with the planner video, a page tour inside an iPad frame, a low-battery band, the style picker as the buy box. */
@@ -24,12 +24,13 @@
 body[data-style="mono"]{--deep:#141414;--night:#1C1C1C;--berry:#E1E0DB;--berryink:#141414;--blush:#E1E0DB;--line:#CFCECA}
 body[data-style="garden"]{--deep:#1D3A1F;--night:#142515;--berry:#B5C8A3;--berryink:#3F6A42;--blush:#DCE6D1;--line:#C9D3BE}
 body[data-style="simplicity"]{--deep:#2B2B2A;--night:#1F1F1E;--berry:#D9CDB6;--berryink:#7A6440;--blush:#ECE7DF;--line:#DAD3C8}
+body[data-style="espresso"]{--deep:#3B2A20;--night:#2A1E17;--berry:#D6CEC5;--berryink:#6E5A4C;--blush:#E3DDD5;--line:#DCD5CC}
 
 /* style chooser (top) */
 .lookbar{padding-bottom:18px}
 .lookbar p{margin:0 0 8px;text-align:center;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.looks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;max-width:640px;margin:0 auto}
-@media (max-width:420px){.looks{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.looks{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;max-width:760px;margin:0 auto}
+@media (max-width:520px){.looks{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .looks .opt label{padding:6px 6px 10px;gap:6px}
 .looks img{display:block;width:100%;height:auto;aspect-ratio:2360/1640;object-fit:cover;border-radius:3px}
 
@@ -189,8 +190,8 @@ h2{margin:0;font-size:clamp(30px,7vw,40px);font-weight:900;letter-spacing:-.04em
 .picker{display:grid;gap:18px}
 fieldset{border:0;margin:0;padding:0;min-width:0}
 legend{padding:0;margin-bottom:10px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.styles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
-@media (max-width:520px){.styles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.styles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+@media (max-width:400px){.styles{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .years{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .opt{position:relative}
 .opt input{position:absolute;opacity:0;pointer-events:none}
@@ -257,6 +258,7 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
     <div class="opt"><input type="radio" name="look" id="lk-mono" value="mono"><label for="lk-mono"><img src="/planners/img/mono-p-cov1.jpg" alt="" width="900" height="625">Monochrome</label></div>
     <div class="opt"><input type="radio" name="look" id="lk-garden" value="garden" checked><label for="lk-garden"><img src="/planners/img/garden-p-cov0.jpg" alt="" width="900" height="625">Garden Lace</label></div>
     <div class="opt"><input type="radio" name="look" id="lk-simplicity" value="simplicity"><label for="lk-simplicity"><img src="/planners/img/simplicity-p-cov0.jpg" alt="" width="900" height="625">Simplicity</label></div>
+    <div class="opt"><input type="radio" name="look" id="lk-espresso" value="espresso"><label for="lk-espresso"><img src="/planners/img/espresso-p-cov0.jpg" alt="" width="900" height="625">Espresso Studio</label></div>
   </div>
 </div>
 
@@ -417,6 +419,7 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
           <div class="opt"><input type="radio" name="style" id="st-mono" value="mono"><label for="st-mono"><span class="sw"><i style="background:#141414"></i><i style="background:#fff"></i></span>Monochrome<small>black + white</small></label></div>
           <div class="opt"><input type="radio" name="style" id="st-garden" value="garden" checked><label for="st-garden"><span class="sw"><i style="background:#1D3A1F"></i><i style="background:#B5C8A3"></i></span>Garden Lace<small>forest + sage</small></label></div>
           <div class="opt"><input type="radio" name="style" id="st-simplicity" value="simplicity"><label for="st-simplicity"><span class="sw"><i style="background:#F2EFEA"></i><i style="background:#B8975D"></i></span>Simplicity<small>ivory + gold</small></label></div>
+          <div class="opt"><input type="radio" name="style" id="st-espresso" value="espresso"><label for="st-espresso"><span class="sw"><i style="background:#3B2A20"></i><i style="background:#8C7B6F"></i></span>Espresso Studio<small>espresso + mocha</small></label></div>
         </div>
       </fieldset>
       <fieldset>
@@ -460,7 +463,7 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
   <details><summary>do I need an Apple Pencil?</summary><p>no. a stylus makes handwriting easier, but you can type in text boxes in GoodNotes and Notability too.</p></details>
   <details><summary>can I use it on my phone?</summary><p>it's made for a tablet turned sideways. it will open on a phone, but the pages are small, so a tablet is the way to go.</p></details>
   <details><summary>do I have to have ADHD?</summary><p>no. it's made for the busy mom brain, diagnosed, wondering or just stretched thin. it's a planner, not a medical tool.</p></details>
-  <details><summary>what's different between the styles?</summary><p>only the look. Berry, Monochrome, Garden Lace and Simplicity have the same pages inside. the sticker count is different for each style, and Berry comes with 6 covers instead of 3.</p></details>
+  <details><summary>what's different between the styles?</summary><p>only the look. Berry, Monochrome, Garden Lace, Simplicity and Espresso Studio have the same pages inside. the sticker count is different for each style, and Berry comes with 6 covers instead of 3.</p></details>
   <details><summary>can I get a refund?</summary><p>because it's a digital download you get right away, sales are final. if anything isn't working, reply to your download email and I'll help.</p></details>
   <details><summary>can I share it?</summary><p>it's for your personal use, so please don't share or resell the files.</p></details>
   <div class="endbuy"><a class="pill solid buylink buytxt" href="https://buy.stripe.com/00w7sN50v96QdxSaCd6Na06">get the Garden Lace planner · $9.99</a><p class="fine">instant download · <a href="#buy">compare styles</a></p></div>
@@ -519,11 +522,13 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
   var S={berry:{name:"Berry",st:960,pages:{"2027":606,undated:603}},
          mono:{name:"Monochrome",st:334,pages:{"2027":607,undated:604}},
          garden:{name:"Garden Lace",st:343,pages:{"2027":607,undated:604}},
-         simplicity:{name:"Simplicity",st:334,pages:{"2027":607,undated:604}}};
+         simplicity:{name:"Simplicity",st:334,pages:{"2027":607,undated:604}},
+         espresso:{name:"Espresso Studio",st:334,pages:{"2027":607,undated:604}}};
   var LINKS={"berry-2027":"https://buy.stripe.com/14A7sNakP3MwbpKbGh6Na02","berry-undated":"https://buy.stripe.com/28E8wRakP5UE9hCfWx6Na03",
     "mono-2027":"https://buy.stripe.com/9B6cN71Oj4QAdxS9y96Na04","mono-undated":"https://buy.stripe.com/4gMfZjfF9erafG06lX6Na05",
     "garden-2027":"https://buy.stripe.com/00w7sN50v96QdxSaCd6Na06","garden-undated":"https://buy.stripe.com/3cIcN78cH3Mw3XidOp6Na07",
-    "simplicity-2027":"https://buy.stripe.com/00w3cxdx16YI51mh0B6Na08","simplicity-undated":"https://buy.stripe.com/fZu9AV8cHeractOcKl6Na09"};
+    "simplicity-2027":"https://buy.stripe.com/00w3cxdx16YI51mh0B6Na08","simplicity-undated":"https://buy.stripe.com/fZu9AV8cHeractOcKl6Na09",
+    "espresso-2027":"https://buy.stripe.com/14A00lakP1EobpKcKl6Na0a","espresso-undated":"https://buy.stripe.com/28E28t64z96QdxS11D6Na0b"};
   var shots=[["hero","the planner"],["weekly","weekly"],["daily","daily"],["stickers","stickers"],["covers","covers"]];
   var cur="hero";
   function sel(n){var e=document.querySelector('input[name="'+n+'"]:checked');return e?e.value:null}
@@ -553,7 +558,13 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
       fonts:[["WEEK 2","Cinzel","wide-spaced headings","font-family:Cinzel;font-weight:500;letter-spacing:.14em"],
              ["Top 3 this week","Jost","labels + text","font-family:Jost;font-weight:500;font-size:21px"],
              ["YOU DID MORE TODAY THAN ANYONE SAW.","Cinzel","the little quotes","font-family:Cinzel;font-size:15px;letter-spacing:.12em"]],
-      note:"334 stickers, including linen tape and gold accents, plus 3 covers."}};
+      note:"334 stickers, including linen tape and gold accents, plus 3 covers."},
+    espresso:{vibe:"a deep espresso frame, warm oat pages, mocha tabs and a checkered cover. warm, grown-up and cozy.",cov:"cov0",
+      colors:[["espresso","#3B2A20"],["cocoa","#5E4A3E"],["mocha","#8C7B6F"],["latte","#D6CEC5"],["oat","#EEEBE6"]],
+      fonts:[["FRIDAY","Bodoni Moda","tall headings","font-family:'Bodoni Moda';font-weight:450;font-size:30px;color:#3B2A20"],
+             ["january 1","Allison","script accents","font-family:Allison;font-size:38px;color:#5E4A3E"],
+             ["TOP 3 MUST-DOS","Inter","labels + buttons","font-family:Inter;font-weight:600;font-size:16px;letter-spacing:.12em"]],
+      note:"334 stickers, including checker tape, stripes and bows, plus 3 covers."}};
   var STK=["ph1","ph2","x0","lab1","ic1","x1","ph3","lab2"];
   function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x)e.textContent=x;return e}
   function board(s){
