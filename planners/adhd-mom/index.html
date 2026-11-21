@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>the ADHD mom planner · unspoken motherhood co</title>
-<meta name="description" content="the ADHD mom planner: a digital planner for the mom brain that's holding everything. 6 styles, 2027 or undated, for iPad and Android. $9.99 instant download.">
+<meta name="description" content="the ADHD mom planner: a digital planner for the mom brain that's holding everything. 8 styles, 2027 or undated, for iPad and Android. $9.99 instant download.">
 <meta property="og:title" content="the ADHD mom planner · unspoken motherhood co">
-<meta property="og:description" content="for the mom brain that's holding everything. 6 styles, 2027 or undated. $9.99 instant download.">
+<meta property="og:description" content="for the mom brain that's holding everything. 8 styles, 2027 or undated. $9.99 instant download.">
 <meta property="og:image" content="https://unspokenmotherhoodco.com/planners/img/garden-2027-hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800;900&family=Caveat:wght@600;700&family=Oswald:wght@500&family=League+Spartan:wght@400;600&family=Bodoni+Moda:opsz,wght@6..96,400..900&family=Pinyon+Script&family=Playfair+Display:ital@1&family=Cinzel:wght@500&family=Jost:wght@400;500&family=Allison&family=Cormorant+Garamond:wght@500;600&family=Inter:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800;900&family=Caveat:wght@600;700&family=Oswald:wght@500&family=League+Spartan:wght@400;600&family=Bodoni+Moda:opsz,wght@6..96,400..900&family=Pinyon+Script&family=Playfair+Display:ital@1&family=Cinzel:wght@500&family=Jost:wght@400;500&family=Allison&family=Cormorant+Garamond:wght@500;600&family=Fraunces:ital,wght@1,600;1,800&family=Gloria+Hallelujah&family=Space+Mono:wght@400;700&family=Inter:wght@500;600&display=swap">
 <style>
 /* layout: the unspoken site's own look (same tokens, Inter Tight + Caveat), one long phone-first column.
    dark hero with the planner video, a page tour inside an iPad frame, a low-battery band, the style picker as the buy box. */
@@ -26,6 +26,8 @@ body[data-style="garden"]{--deep:#1D3A1F;--night:#142515;--berry:#B5C8A3;--berry
 body[data-style="simplicity"]{--deep:#2B2B2A;--night:#1F1F1E;--berry:#D9CDB6;--berryink:#7A6440;--blush:#ECE7DF;--line:#DAD3C8}
 body[data-style="espresso"]{--deep:#3B2A20;--night:#2A1E17;--berry:#D6CEC5;--berryink:#6E5A4C;--blush:#E3DDD5;--line:#DCD5CC}
 body[data-style="vintage"]{--deep:#5B1A1F;--night:#3A1316;--berry:#E8DCCB;--berryink:#7A2730;--blush:#EDE3D3;--line:#E2D6C4}
+body[data-style="periwinkle"]{--deep:#3F5BA8;--night:#1F1F2B;--berry:#F2CDD8;--berryink:#4A66B0;--blush:#E5EBF6;--line:#D3DBEC}
+body[data-style="loud"]{--deep:#1C1517;--night:#2A2023;--berry:#F1E4E6;--berryink:#8A5A66;--blush:#E8DCE0;--line:#DCCFD2}
 
 /* style chooser (top) */
 .lookbar{padding-bottom:18px}
@@ -38,7 +40,7 @@ body[data-style="vintage"]{--deep:#5B1A1F;--night:#3A1316;--berry:#E8DCCB;--berr
 .looks>.opt{width:38%}
 .styles>.opt{width:40%}
 @media (min-width:560px){.looks>.opt{width:28%}}
-@media (min-width:760px){.looks>.opt{width:calc((100% - 40px)/6)}.styles>.opt{width:31%}}
+@media (min-width:760px){.looks>.opt{width:calc((100% - 56px)/8)}.styles>.opt{width:31%}}
 .swipehint{display:block;margin-top:6px;font-size:12px;font-weight:700;color:var(--muted);text-align:right}
 @media (min-width:760px){.lookbar .swipehint{display:none}}
 .looks .opt label{padding:6px 6px 10px;gap:6px}
@@ -268,6 +270,8 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
     <div class="opt"><input type="radio" name="look" id="lk-berry" value="berry"><label for="lk-berry"><img src="/planners/img/berry-p-cov0.jpg" alt="" width="900" height="625">Berry</label></div>
     <div class="opt"><input type="radio" name="look" id="lk-simplicity" value="simplicity"><label for="lk-simplicity"><img src="/planners/img/simplicity-p-cov0.jpg" alt="" width="900" height="625">Simplicity</label></div>
     <div class="opt"><input type="radio" name="look" id="lk-vintage" value="vintage"><label for="lk-vintage"><img src="/planners/img/vintage-p-cov0.jpg" alt="" width="900" height="625">Vintage Romance</label></div>
+    <div class="opt"><input type="radio" name="look" id="lk-periwinkle" value="periwinkle"><label for="lk-periwinkle"><img src="/planners/img/periwinkle-p-cov0.jpg" alt="" width="900" height="625">Periwinkle Pop</label></div>
+    <div class="opt"><input type="radio" name="look" id="lk-loud" value="loud"><label for="lk-loud"><img src="/planners/img/loud-p-cov0.jpg" alt="" width="900" height="625">Loud and Honest</label></div>
   </div>
   <span class="swipehint" aria-hidden="true">swipe for more styles →</span>
 </div>
@@ -431,6 +435,8 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
           <div class="opt"><input type="radio" name="style" id="st-berry" value="berry"><label for="st-berry"><span class="sw"><i style="background:#8A5A66"></i><i style="background:#D8B6B8"></i></span>Berry<small>the original</small></label></div>
           <div class="opt"><input type="radio" name="style" id="st-simplicity" value="simplicity"><label for="st-simplicity"><span class="sw"><i style="background:#F2EFEA"></i><i style="background:#B8975D"></i></span>Simplicity<small>ivory + gold</small></label></div>
           <div class="opt"><input type="radio" name="style" id="st-vintage" value="vintage"><label for="st-vintage"><span class="sw"><i style="background:#5B1A1F"></i><i style="background:#F3ECDD"></i></span>Vintage Romance<small>wine + parchment</small></label></div>
+          <div class="opt"><input type="radio" name="style" id="st-periwinkle" value="periwinkle"><label for="st-periwinkle"><span class="sw"><i style="background:#5C7CC4"></i><i style="background:#F2CDD8"></i></span>Periwinkle Pop<small>periwinkle + pink</small></label></div>
+          <div class="opt"><input type="radio" name="style" id="st-loud" value="loud"><label for="st-loud"><span class="sw"><i style="background:#1C1517"></i><i style="background:#E8DCE0"></i></span>Loud and Honest<small>blush + black</small></label></div>
         </div>
         <span class="swipehint" aria-hidden="true">swipe for more →</span>
       </fieldset>
@@ -475,7 +481,7 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
   <details><summary>do I need an Apple Pencil?</summary><p>no. a stylus makes handwriting easier, but you can type in text boxes in GoodNotes and Notability too.</p></details>
   <details><summary>can I use it on my phone?</summary><p>it's made for a tablet turned sideways. it will open on a phone, but the pages are small, so a tablet is the way to go.</p></details>
   <details><summary>do I have to have ADHD?</summary><p>no. it's made for the busy mom brain, diagnosed, wondering or just stretched thin. it's a planner, not a medical tool.</p></details>
-  <details><summary>what's different between the styles?</summary><p>only the look. Berry, Monochrome, Garden Lace, Simplicity, Espresso Studio and Vintage Romance have the same pages inside. the sticker count is different for each style, and Berry comes with 6 covers instead of 3.</p></details>
+  <details><summary>what's different between the styles?</summary><p>only the look. Berry, Monochrome, Garden Lace, Simplicity, Espresso Studio, Vintage Romance, Periwinkle Pop and Loud and Honest have the same pages inside. the sticker count is different for each style, and Berry comes with 6 covers instead of 3.</p></details>
   <details><summary>can I get a refund?</summary><p>because it's a digital download you get right away, sales are final. if anything isn't working, reply to your download email and I'll help.</p></details>
   <details><summary>can I share it?</summary><p>it's for your personal use, so please don't share or resell the files.</p></details>
   <div class="endbuy"><a class="pill solid buylink buytxt" href="https://buy.stripe.com/14A00lakP1EobpKcKl6Na0a">get the Espresso Studio planner · $9.99</a><p class="fine">instant download · <a href="#buy">compare styles</a></p></div>
@@ -536,13 +542,17 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
          garden:{name:"Garden Lace",st:343,pages:{"2027":607,undated:604}},
          simplicity:{name:"Simplicity",st:334,pages:{"2027":607,undated:604}},
          espresso:{name:"Espresso Studio",st:334,pages:{"2027":607,undated:604}},
-         vintage:{name:"Vintage Romance",st:334,pages:{"2027":607,undated:604}}};
+         vintage:{name:"Vintage Romance",st:334,pages:{"2027":607,undated:604}},
+         periwinkle:{name:"Periwinkle Pop",st:334,pages:{"2027":607,undated:604}},
+         loud:{name:"Loud and Honest",st:334,pages:{"2027":607,undated:604}}};
   var LINKS={"berry-2027":"https://buy.stripe.com/14A7sNakP3MwbpKbGh6Na02","berry-undated":"https://buy.stripe.com/28E8wRakP5UE9hCfWx6Na03",
     "mono-2027":"https://buy.stripe.com/9B6cN71Oj4QAdxS9y96Na04","mono-undated":"https://buy.stripe.com/4gMfZjfF9erafG06lX6Na05",
     "garden-2027":"https://buy.stripe.com/00w7sN50v96QdxSaCd6Na06","garden-undated":"https://buy.stripe.com/3cIcN78cH3Mw3XidOp6Na07",
     "simplicity-2027":"https://buy.stripe.com/00w3cxdx16YI51mh0B6Na08","simplicity-undated":"https://buy.stripe.com/fZu9AV8cHeractOcKl6Na09",
     "espresso-2027":"https://buy.stripe.com/14A00lakP1EobpKcKl6Na0a","espresso-undated":"https://buy.stripe.com/28E28t64z96QdxS11D6Na0b",
-    "vintage-2027":"https://buy.stripe.com/28E6oJ50v5UE0L6dOp6Na0c","vintage-undated":"https://buy.stripe.com/cNi28tboT1EoeBW8u56Na0d"};
+    "vintage-2027":"https://buy.stripe.com/28E6oJ50v5UE0L6dOp6Na0c","vintage-undated":"https://buy.stripe.com/cNi28tboT1EoeBW8u56Na0d",
+    "periwinkle-2027":"https://buy.stripe.com/3cI00ldx14QAbpK25H6Na0e","periwinkle-undated":"https://buy.stripe.com/eVq7sN8cH5UEgK411D6Na0f",
+    "loud-2027":"https://buy.stripe.com/28EdRbeB5gzi9hC4dP6Na0g","loud-undated":"https://buy.stripe.com/00w7sN2Sn3Mw8dy4dP6Na0h"};
   var shots=[["hero","the planner"],["weekly","weekly"],["daily","daily"],["stickers","stickers"],["covers","covers"]];
   var cur="hero";
   function sel(n){var e=document.querySelector('input[name="'+n+'"]:checked');return e?e.value:null}
@@ -584,7 +594,19 @@ footer .mark{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:u
       fonts:[["Friday,","Cormorant Garamond","soft serif headings","font-family:'Cormorant Garamond';font-weight:500;font-size:30px;color:#3A1316"],
              ["January First","Pinyon Script","script accents","font-family:'Pinyon Script';font-size:27px;color:#7A2730"],
              ["TOP 3 MUST-DOS","Inter","labels + buttons","font-family:Inter;font-weight:600;font-size:16px;letter-spacing:.12em"]],
-      note:"334 stickers, including vintage tape, stripes and bows, plus 3 covers."}};
+      note:"334 stickers, including vintage tape, stripes and bows, plus 3 covers."},
+    periwinkle:{vibe:"a bright periwinkle frame, soft pink tabs, warm white pages and a pink wave cover. playful, bright and fun to open.",cov:"cov0",
+      colors:[["periwinkle","#5C7CC4"],["cobalt","#3F5BA8"],["pink","#F2CDD8"],["ice","#E5EBF6"],["ink","#1F1F2B"]],
+      fonts:[["friday,","Fraunces italic","bold italic headings","font-family:Fraunces;font-style:italic;font-weight:800;font-size:28px;color:#3F5BA8"],
+             ["january first","Gloria Hallelujah","doodly accents","font-family:'Gloria Hallelujah';font-size:20px;color:#5C7CC4"],
+             ["top 3 must-dos","Space Mono","labels + text","font-family:'Space Mono';font-weight:700;font-size:16px"]],
+      note:"334 stickers, including patterned tape and bows, plus 3 covers."},
+    loud:{vibe:"a soft blush frame, warm white pages, near-black accents and a cover with giant type. bold, honest and real.",cov:"cov0",
+      colors:[["black","#1C1517"],["berry","#8A5A66"],["blush","#E8DCE0"],["petal","#F1E4E6"],["cream","#FBF8F4"]],
+      fonts:[["friday","Inter Tight Black","big bold headings","font-family:'Inter Tight';font-weight:900;font-size:30px;letter-spacing:-.04em;color:#1C1517"],
+             ["january first","Caveat","handwritten script","font-family:Caveat;font-weight:700;font-size:27px;color:#8A5A66"],
+             ["top 3 must-dos","Inter Tight","labels + text","font-family:'Inter Tight';font-weight:600;font-size:17px"]],
+      note:"334 stickers, including striped tape and bows, plus 3 covers."}};
   var STK=["ph1","ph2","x0","lab1","ic1","x1","ph3","lab2"];
   function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x)e.textContent=x;return e}
   function board(s){
